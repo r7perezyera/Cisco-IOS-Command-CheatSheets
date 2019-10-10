@@ -7,7 +7,8 @@
 
 
 ## Before we start: Configuration modes
-Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).
+Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).  
+
 Mode (prompt)|Explanation (sorta)|idk
 ---|---|---
 ``S1>``|EXEC mode|type ``enable`` to pass to next mode
