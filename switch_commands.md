@@ -32,14 +32,26 @@ example:
 Command|Additional Notes
 ---|---
 ``S1#show running-config``|N/A
-``S1#show interface [int-id]``|
+``S1#show interface [int-id]``|_f0/5_, for example
 ``S1#show mac address-table``|
 ``S1#show vlan``|
-``S1#show vlan brief``|
+``S1#show vlan brief``|**only** displays VLANs, statuses, names, and assigned ports
 ``S1#show interface vlan [id]``|
 ``S1#show port-security interface [int-id]``|
 
-#### Option 2 to display stuff
+#### Option 2 would be same as option 1 but with configuration mode in its own column
+
+Configuration mode|Command|Additional Notes
+---|---|---
+``S1#``|``show running-config``|N/A
+``S1#``|``show interface [int-id]``|*f0/5*, for example
+``S1#``|``show mac address-table``|
+``S1#``|``show vlan``|
+``S1#``|``show vlan brief``|**only** displays VLANs, statuses, names, and assigned ports
+``S1#``|``show interface vlan [id]``|
+``S1#``|``show port-security interface [int-id]``|
+
+#### Option 3 to display stuff: everything within a 'code box', with side comments on further (and important) command details
 ```
 S1#show running-config                          // some comment on how the command works
 S1#show interface [int-id]
@@ -49,5 +61,3 @@ S1#show vlan
 S1#show vlan brief
 S1#show interface vlan [id]
 ```
-
-#### Option 3 would be same as option 1 but with configuration mode in its own column
