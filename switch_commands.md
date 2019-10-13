@@ -5,11 +5,12 @@
 
 ## Table of contents
 
+(coming soon)
 
 ## Before we start: Configuration modes
 Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).  
 
-Mode (prompt)|Explanation (sorta)|idk
+Mode (prompt)|Explanation (sorta)|Mode change
 ---|---|---
 ``S1>``|EXEC mode|type ``enable`` to pass to next mode
 ``S1#``|Privileged EXEC mode|type ``configure terminal`` to pass to next mode
@@ -28,36 +29,92 @@ You can execute them from global configuration mode (``S1(config)#`` prompt) by 
 example:  
 ``S1(config)#do show ip interface brief``  
 
-#### Option 1 to display stuff
 Command|Additional Notes
 ---|---
 ``S1#show running-config``|N/A
+``S1#show history``|
 ``S1#show interface [int-id]``|_f0/5_, for example
 ``S1#show mac address-table``|
+``S1#show port-security interface [int-id]``|
 ``S1#show vlan``|
 ``S1#show vlan brief``|**only** displays VLANs, statuses, names, and assigned ports
 ``S1#show interface vlan [id]``|
-``S1#show port-security interface [int-id]``|
+``S1#show interface trunk``|
+### TODO shows de troncales
 
-#### Option 2 would be same as option 1 but with configuration mode in its own column
+## Configuring SSH
+Command|Additional Notes
+---|---
+``S1#show ip ssh``|Use it to verify that the switch supports SSH
+``S1(config)#ip domain-name [domain-name]``|
+``S1(config)#crypto key generate rsa``|
+``S1(config)#username [admin] secret [ccna]``|
+``S1(config)#line vty 0 15``|
+``S1(config-line)#transport input ssh``|
+``S1(config-line)#login local ``|
+``S1(config-line)#exit``|
+``S1(config)#ip ssh version 2``|enable SSH version 2
+|
+``S1(config)#crypto key zeroise rsa``|use to delete RSA key pair
 
-Configuration mode|Command|Additional Notes
----|---|---
-``S1#``|``show running-config``|N/A
-``S1#``|``show interface [int-id]``|*f0/5*, for example
-``S1#``|``show mac address-table``|
-``S1#``|``show vlan``|
-``S1#``|``show vlan brief``|**only** displays VLANs, statuses, names, and assigned ports
-``S1#``|``show interface vlan [id]``|
-``S1#``|``show port-security interface [int-id]``|
+## Managing more than one interface at the same time
+When we want to execute a sequence on commands on more than one port, selecting an interface range makes the job a lot easier.  
+Use: ``S1(config)#interface range [typeModule/firstNumber]-[lastNumber]``
+|*typeModule*s|abbreviation
+|---|---|
+|``FastEthernet``|``f``
+|``GigabitEthernet``|``g``
 
-#### Option 3 to display stuff: everything within a 'code box', with side comments on further (and important) command details
-```
-S1#show running-config                          // some comment on how the command works
-S1#show interface [int-id]
-S1#show port-security interface [int-id]        // another comment
-S1#show mac address-table
-S1#show vlan
-S1#show vlan brief
-S1#show interface vlan [id]
-```
+Here's an example:
+``S1(config)#interface range f0/1-12``  
+
+Note that you can select multiple ranges on a single command.  
+Here's an example:
+``S1(config)#interface range f0/1-12, 15-24, g0/1-2``
+
+You might need to use it frequently on scenarios where the following blocks of commands are used.
+
+## Configuring VLANs
+Command|Additional Notes
+---|---
+``S1(config)#vlan 20``|create a VLAN
+``S1(config-vlan)#name [someName]``| assign a name to the VLAN
+
+Now it is time to assign ports to the newly created VLAN
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|remember, ``interface range`` might be useful
+``S1(config-if)#switchport mode access``|
+``S1(config-if)#switchport access vlan [vlan-id]``|assign/change port VLAN
+
+### Deleting a VLAN
+Command|Additional Notes
+---|---
+``S1(config)#no vlan [vlan-id]``|
+``S1(config)#delete flash:vlan.dat``|erases the whole VLAN database
+
+### Removing interface(s) a VLAN
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|
+``S1(config-if)#no switchport access vlan [vlan-id]``|remove the VLAN from the port
+
+### Configuring IEEE 802.1q trunk links
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|
+``S1(config-if)#switchport mode trunk``|
+``S1(config-if)#switchport trunk native vlan [vlan-id]``|
+``S1(config-if)#switchport trunk allowed vlan [vlan-list]``|**All** allowed VLAN IDs.
+
+### Troubleshooting VLANs
+Command|Additional Notes
+---|---
+``S1#show vlan``|check whether a port belongs to the expected VLAN
+``S1#show mac address-table``|check which addresses were learned on a particular port of the switch, and to which VLAN that port is assigned
+``S1#show interfaces [int-id] switchport``|helpful in verifying an inactive VLAN is assigned to a port
+
+### Troubleshooting Trunks
+Command|Additional Notes
+---|---
+``S1#show interfaces trunk``|- check native VLAN id matches on both ends of link  - check whether a trunk link has been established between switches
