@@ -59,10 +59,10 @@ Command|Additional Notes
 ## Managing more than one interface at the same time
 When we want to execute a sequence on commands on more than one port, selecting an interface range makes the job a lot easier.  
 Use: ``S1(config)#interface range [typeModule/firstNumber]-[lastNumber]``
-|*typeModule*s|abbreviation
-|---|---|
-|``FastEthernet``|``f``
-|``GigabitEthernet``|``g``
+*typeModule*s|abbreviation
+---|---
+``FastEthernet``|``f``
+``GigabitEthernet``|``g``
 
 Here's an example:
 ``S1(config)#interface range f0/1-12``  
@@ -79,7 +79,8 @@ Command|Additional Notes
 ``S1(config)#vlan 20``|create a VLAN
 ``S1(config-vlan)#name [someName]``| assign a name to the VLAN
 
-Now it is time to assign ports to the newly created VLAN
+Now it is time to assign ports to the newly created VLAN  
+
 Command|Additional Notes
 ---|---
 ``S1(config)#interface [int-id]``|remember, ``interface range`` might be useful
