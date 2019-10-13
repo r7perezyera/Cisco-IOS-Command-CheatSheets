@@ -105,11 +105,13 @@ Command|Additional Notes
 
 :bulb: Recall: After a violation, a port in **Shutdown violation mode** changes its status to *error disabled*, and is effectively **shut down**. To resume operation (sending and receiving traffic), we must bring it back up. Here's how:
 
-* Access the interface configuration mode with ``S1(config)#interface [int-id]``
+* Access the interface configuration mode with ``S1(config)#interface [int-id]``.
 * Shut the interface down using ``S1(config-if)#shutdown``.
-* Bring the interface back up using ``S1(config-if)#no shutdown``
+* Bring the interface back up using ``S1(config-if)#no shutdown``.
 
-## Configuring VLANs
+## VLANs
+
+### Configuring VLANs
 Command|Additional Notes
 ---|---
 ``S1(config)#vlan 20``|create a VLAN
