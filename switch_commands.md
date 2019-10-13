@@ -131,7 +131,7 @@ Command|Additional Notes
 ``S1(config)#no vlan [vlan-id]``|
 ``S1(config)#delete flash:vlan.dat``|:warning: erases **the whole VLAN database**
 
-### Removing interface(s) a VLAN
+### Removing interface(s) from a VLAN
 Command|Additional Notes
 ---|---
 ``S1(config)#interface [int-id]``|
