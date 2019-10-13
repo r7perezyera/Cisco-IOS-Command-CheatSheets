@@ -59,6 +59,7 @@ Command|Additional Notes
 ## Managing more than one interface at the same time
 When we want to execute a sequence on commands on more than one port, selecting an interface range makes the job a lot easier.  
 Use: ``S1(config)#interface range [typeModule/firstNumber]-[lastNumber]``
+
 *typeModule*s|abbreviation
 ---|---
 ``FastEthernet``|``f``
