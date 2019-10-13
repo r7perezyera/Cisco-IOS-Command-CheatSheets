@@ -79,18 +79,35 @@ Command|Additional Notes
 ---|---
 ``S1(config)#interface [int-id]``|
 ``S1(config-if)#switchport mode access``|Set interface mode to *access*.
-``S1(config-if)#switchport port security``|Enable port security on the interface
+``S1(config-if)#switchport port-security``|Enable port security on the interface
 
->:trophy: Best practice: It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode access``).
+>:trophy: **Best practice:** It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode access``).
 
 ## Configuring Sticky Port Security
 Command|Additional Notes
 ---|---
 ``S1(config)#interface [int-id]``|
 ``S1(config-if)#switchport mode access``|Set interface mode to *access*.
-``S1(config-if)#switchport port security``|Enable port security on the interface
-``S1(config-if)#switchport port security maximum 10``|Set maximum number of secure MAC addresses allowed on port
-``S1(config-if)#switchport port security mac-address sticky``|Enable sticky learning
+``S1(config-if)#switchport port-security``|Enable port security on the interface
+``S1(config-if)#switchport port-security maximum 10``|Set maximum number of secure MAC addresses allowed on port
+``S1(config-if)#switchport port-security mac-address sticky``|Enable sticky learning
+
+## Verifying Port Security & secure MAC addresses
+No that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
+
+Command|Additional Notes
+---|---
+``S1#show port-security interface [int-id]``|displays interface's Port Security configuration
+``S1#show port-security address``|displays secure MAC addresses configured on **all switch interfaces**
+``S1#show interface [int-id] status``|displays port status. Useful to verify if an interface is in ``err-disabled`` status.
+
+## Bringing an ``err-disabled`` interface back up
+
+:bulb: Recall: After a violation, a port in **Shutdown violation mode** changes its status to *error disabled*, and is effectively **shut down**. To resume operation (sending and receiving traffic), we must bring it back up. Here's how:
+
+* Access the interface configuration mode with ``S1(config)#interface [int-id]``
+* Shut the interface down using ``S1(config-if)#shutdown``.
+* Bring the interface back up using ``S1(config-if)#no shutdown``
 
 ## Configuring VLANs
 Command|Additional Notes
@@ -110,7 +127,7 @@ Command|Additional Notes
 Command|Additional Notes
 ---|---
 ``S1(config)#no vlan [vlan-id]``|
-``S1(config)#delete flash:vlan.dat``|erases the whole VLAN database
+``S1(config)#delete flash:vlan.dat``|:warning: erases **the whole VLAN database**
 
 ### Removing interface(s) a VLAN
 Command|Additional Notes
