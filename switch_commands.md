@@ -1,6 +1,6 @@
 # :construction: Work in progress! :construction:
 
-# Switch command cheat-sheet
+# CCNA2 Switch command cheat-sheet
 #### Useful switch commands for CCNA2 (Routing and Switching Essentials) Cisco Networking Academy course.
 
 ## Table of contents
@@ -10,7 +10,7 @@
 ## Before we start: Configuration modes
 Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).  
 
-Mode (prompt)|Explanation (sorta)|Mode change
+Mode (prompt)|Explanation (sorta)|Mode change (current -> next)
 ---|---|---
 ``S1>``|EXEC mode|type ``enable`` to pass to next mode
 ``S1#``|Privileged EXEC mode|type ``configure terminal`` to pass to next mode
@@ -54,7 +54,7 @@ Command|Additional Notes
 ``S1(config-line)#login local ``|
 ``S1(config-line)#exit``|
 ``S1(config)#ip ssh version 2``|enable SSH version 2
-|
+ | 
 ``S1(config)#crypto key zeroise rsa``|use to delete RSA key pair
 
 ## Managing more than one interface at the same time
