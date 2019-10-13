@@ -74,6 +74,24 @@ Here's an example:
 
 You might need to use it frequently on scenarios where the following blocks of commands are used.
 
+## Configuring Dynamic Port Security
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|
+``S1(config-if)#switchport mode access``|Set interface mode to *access*.
+``S1(config-if)#switchport port security``|Enable port security on the interface
+
+>:trophy: Best practice: It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode access``).
+
+## Configuring Sticky Port Security
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|
+``S1(config-if)#switchport mode access``|Set interface mode to *access*.
+``S1(config-if)#switchport port security``|Enable port security on the interface
+``S1(config-if)#switchport port security maximum 10``|Set maximum number of secure MAC addresses allowed on port
+``S1(config-if)#switchport port security mac-address sticky``|Enable sticky learning
+
 ## Configuring VLANs
 Command|Additional Notes
 ---|---
