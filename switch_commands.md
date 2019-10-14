@@ -74,16 +74,17 @@ Here's an example:
 
 You might need to use it frequently on scenarios where the following blocks of commands are used.
 
-## Configuring Dynamic Port Security
+## :closed_lock_with_key: Configuring Dynamic Port Security
 Command|Additional Notes
 ---|---
 ``S1(config)#interface [int-id]``|
 ``S1(config-if)#switchport mode access``|Set interface mode to *access*.
 ``S1(config-if)#switchport port-security``|Enable port security on the interface
+``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
 
 >:trophy: **Best practice:** It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode access``).
 
-## Configuring Sticky Port Security
+## :closed_lock_with_key: Configuring Sticky Port Security
 Command|Additional Notes
 ---|---
 ``S1(config)#interface [int-id]``|
@@ -93,12 +94,12 @@ Command|Additional Notes
 ``S1(config-if)#switchport port-security mac-address sticky``|Enable sticky learning
 ``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
 
-## Verifying Port Security & secure MAC addresses
+## :closed_lock_with_key: :white_check_mark: Verifying Port Security & secure MAC addresses
 No that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
 
 Command|Additional Notes
 ---|---
-``S1#show port-security interface [int-id]``|displays interface's Port Security configuration
+``S1#show port-security interface [int-id]``|displays interface's Port Security configuration. If violations occured, they can be checked here.
 ``S1#show port-security address``|displays secure MAC addresses configured on **all switch interfaces**
 ``S1#show interface [int-id] status``|displays port status. Useful to verify if an interface is in ``err-disabled`` status.
 
