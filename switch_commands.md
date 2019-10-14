@@ -91,6 +91,7 @@ Command|Additional Notes
 ``S1(config-if)#switchport port-security``|Enable port security on the interface
 ``S1(config-if)#switchport port-security maximum 10``|Set maximum number of secure MAC addresses allowed on port
 ``S1(config-if)#switchport port-security mac-address sticky``|Enable sticky learning
+``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
 
 ## Verifying Port Security & secure MAC addresses
 No that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
