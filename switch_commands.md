@@ -35,11 +35,12 @@ Command|Additional Notes
 ``S1#show history``|
 ``S1#show interface [int-id]``|useful to detect errors or verify packets are being sent and received
 ``S1#show mac address-table``|
-``S1#show port-security interface [int-id]``|
+``S1#show port-security``|displays Port Security configuration for all interfaces
+``S1#show port-security interface [int-id]``|display Port Security configuration of an interface
 ``S1#show vlan``|
 ``S1#show vlan brief``|**only** displays VLANs, statuses, names, and assigned ports
 ``S1#show interface vlan [id]``|
-``S1#show interface trunk``|
+``S1#show interfaces trunk``|
 ### TODO shows de troncales
 
 ## Configuring SSH
@@ -55,6 +56,14 @@ Command|Additional Notes
 ``S1(config-line)#exit``|
 ``S1(config)#ip ssh version 2``|enable SSH version 2
 ``S1(config)#crypto key zeroise rsa``|:warning: use to **delete** RSA key pair
+
+### Modifying SSH configuration
+Command|Additional Notes
+---|---
+``S1(config)#ip ssh time-out [time]``|Change timeout setting (time in seconds)
+``S1(config)#ip ssh authentication-retries [retries]``|Change number of allowed authentication attempts
+
+Verify your newly configured settings with ``S1#show ip ssh``
 
 ## Managing more than one interface at the same time
 When we want to execute a sequence on commands on more than one port, selecting an interface range makes the job a lot easier.  
