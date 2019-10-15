@@ -167,3 +167,16 @@ Command|Additional Notes
 Command|Additional Notes
 ---|---
 ``S1#show interfaces trunk``|- check native VLAN id matches on both ends of link  - check whether a trunk link has been established between switches
+
+### Voice VLANs
+
+VLANs supporting voice traffic usually have quality of service (QoS). Voice traffic must have a *trusted* label.
+
+>Note that the implementation of QoS is beyond the scope of the CCNA2 course.
+
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|access interface on which the voice VLAN will be assigned
+``S1(config-if)#switchport mode access``|
+``S1(config-if)#mls qos trust cos``|set trusted state of an interface and indicate which packet fields are used to classify traffic
+``S1(config-if)#switchport voice vlan [vlan-id]``|assign a voice VLAN to that port
