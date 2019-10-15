@@ -82,7 +82,7 @@ Command|Additional Notes
 ``S1(config-if)#switchport port-security``|Enable port security on the interface
 ``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
 
->:trophy: **Best practice:** It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode access``).
+>:trophy: **Best practice:** It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode trunk``).
 
 ## :closed_lock_with_key: Configuring Sticky Port Security
 Command|Additional Notes
