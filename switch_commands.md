@@ -54,7 +54,7 @@ Command|Additional Notes
 ``S1(config-line)#login local ``|
 ``S1(config-line)#exit``|
 ``S1(config)#ip ssh version 2``|enable SSH version 2
-``S1(config)#crypto key zeroise rsa``|use to delete RSA key pair
+``S1(config)#crypto key zeroise rsa``|:warning: use to **delete** RSA key pair
 
 ## Managing more than one interface at the same time
 When we want to execute a sequence on commands on more than one port, selecting an interface range makes the job a lot easier.  
