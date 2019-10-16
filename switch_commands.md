@@ -178,5 +178,6 @@ Command|Additional Notes
 ---|---
 ``S1(config)#interface [int-id]``|access interface on which the voice VLAN will be assigned
 ``S1(config-if)#switchport mode access``|
+``S1(config-if)#switchport access vlan [vlan-id]``|
 ``S1(config-if)#mls qos trust cos``|set trusted state of an interface and indicate which packet fields are used to classify traffic
 ``S1(config-if)#switchport voice vlan [vlan-id]``|assign a voice VLAN to that port
