@@ -155,6 +155,7 @@ Command|Additional Notes
 ``S1(config-if)#switchport mode trunk``|
 ``S1(config-if)#switchport trunk native vlan [vlan-id]``|
 ``S1(config-if)#switchport trunk allowed vlan [vlan-list]``|**All** allowed VLAN IDs.
+``S1(config-if)#switchport trunk allowed vlan remove [vlan-id]``|:no_pedestrians: **PROHIBITS ONLY** the VLAN with the specified ID on the trunk interface
 
 ### Troubleshooting VLANs
 Command|Additional Notes
