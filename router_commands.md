@@ -51,6 +51,7 @@ Command|Additional Notes
 ---|---
 ``R1(config)#interface g0/0.[vlan-id]``|create the ``.[vlan-id]`` **subinterface** on interface Gigabit Ethernet 0/0
 ``R1(config-subif)#encapsulation dot1q [vlan-id]``|configure subinterface to operate on a specified VLAN
+``R1(config-subif)#encapsulation dot1q [vlan-id] native``|must be configured on the subinterfaace belonging to the **native** VLAN
 ``R1(config-subif)#ip address [ip-address] [subnet-mask]``|
 ``R1(config-subif)#interface g0/0``|access the Gigabit0/0 interface (i.e., the actual physical interface) to enable it
 ``R1(config-if)#no shutdown``|enable the physical interface. This enables **all** configured subinterfaces **on that interface**
