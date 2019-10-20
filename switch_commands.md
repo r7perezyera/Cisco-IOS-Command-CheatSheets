@@ -145,7 +145,7 @@ Command|Additional Notes
 #### Know the difference!
 
 >:bulb: When a VLAN is deleted. Any switchport assigned to that VLAN **becomes inactive**  
-On the other hand, when the ``no switchport access vlan [vlan-id]`` is executed on a switchport, the port will be returned to VLAN 1
+:bulb: On the other hand, when the ``no switchport access vlan [vlan-id]`` is executed on a switchport, the port will be returned to VLAN 1
 
 ### Removing interface(s) from a VLAN
 Command|Additional Notes
