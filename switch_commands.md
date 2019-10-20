@@ -7,6 +7,8 @@
 
 (coming soon)
 
+---
+
 ## Before we start: Configuration modes
 Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).  
 
@@ -142,16 +144,16 @@ Command|Additional Notes
 ``S1(config)#no vlan [vlan-id]``|:warning: deletes specified VLAN
 ``S1(config)#delete flash:vlan.dat``|:warning: erases **the whole VLAN database**
 
-#### Know the difference!
-
->:bulb: When a VLAN is deleted. Any switchport assigned to that VLAN **becomes inactive**  
-:bulb: On the other hand, when the ``no switchport access vlan [vlan-id]`` is executed on a switchport, the port will be returned to VLAN 1
-
 ### Removing interface(s) from a VLAN
 Command|Additional Notes
 ---|---
 ``S1(config)#interface [int-id]``|
 ``S1(config-if)#no switchport access vlan [vlan-id]``|remove the VLAN from the port
+
+#### Know the difference!
+
+>:bulb: When a VLAN is deleted. Any switchport assigned to that VLAN **becomes inactive**  
+:bulb: On the other hand, when the ``no switchport access vlan [vlan-id]`` is executed on a switchport, the port will be returned to VLAN 1
 
 ### Configuring IEEE 802.1q trunk links
 Command|Additional Notes
