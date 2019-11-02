@@ -6,9 +6,9 @@
 ## Table of contents
 
 - [Router-on-a-stick](#configuring-Router-on-a-stick-inter-VLAN-routing)
+- [Access Control Lists (ACL)](#access-control-lists-(acl))
 
 ---
-
 ## Before we start: Configuration modes
 Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).  
 
@@ -52,6 +52,18 @@ Command|Additional Notes
 ``R1(config)#interface g0/0.[vlan-id]``|create the ``.[vlan-id]`` **subinterface** on interface Gigabit Ethernet 0/0
 ``R1(config-subif)#encapsulation dot1q [vlan-id]``|configure subinterface to operate on a specified VLAN
 ``R1(config-subif)#encapsulation dot1q [vlan-id] native``|must be configured on the subinterfaace belonging to the **native** VLAN
-``R1(config-subif)#ip address [ip-address] [subnet-mask]``|
+``R1(config-subif)#ip address [ip-address] [subnet-mask]``|:exclamation: don't forget to assign the subinterface an IP address!
 ``R1(config-subif)#interface g0/0``|access the Gigabit0/0 interface (i.e., the actual physical interface) to enable it
 ``R1(config-if)#no shutdown``|enable the physical interface. This enables **all** configured subinterfaces **on that interface**
+
+## Access Control Lists (ACL)
+> :construction: Disclaimer: Do keep in mind that work is currently in progress on this section.  
+Additional commands coming soon... :construction:
+
+### Procedure for configuring Standard ACLs
+
+Command|Additional Notes
+---|---
+``R1(config)#access-list [number] (permit/deny) [address] [wildcard mask]``|create entry in standard IPv4 ACL
+``R1(config)#interface [int-id]``|select the interface to which the ACL will be applied
+``R1(config)#ip access-group [number] (in/out)``|activate the ACL on the selected interface
