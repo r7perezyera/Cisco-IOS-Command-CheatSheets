@@ -19,4 +19,4 @@ Feel free to begin exploring!
 - [Switch commands](https://github.com/r7perezyera/Cisco-IOS-Command-CheatSheets/blob/master/switch_commands.md)
 
 ---
-#### :memo: Do keep in mind that feedback and suggestions are welcome and highly appreciated.
+:memo: __Do keep in mind that feedback and suggestions are welcome and highly appreciated.__
