@@ -66,4 +66,4 @@ Command|Additional Notes
 ---|---
 ``R1(config)#access-list [number] (permit/deny) [address] [wildcard mask]``|create entry in standard IPv4 ACL
 ``R1(config)#interface [int-id]``|select the interface to which the ACL will be applied
-``R1(config)#ip access-group [number] (in/out)``|activate the ACL on the selected interface
+``R1(config-if)#ip access-group [number] (in/out)``|activate the ACL on the selected interface
