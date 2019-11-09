@@ -5,7 +5,7 @@
 
 ## Table of contents
 
-(coming soon)
+
 
 ---
 
