@@ -7,7 +7,7 @@ The _Cisco Networking Academy: Routing and Switching Essentials_ (CCNA2) course 
 This repository aims to gather all the course's switch and router commands in a space where everyone (not just _Netacad_ learners) can refer to such commands.
 
 ---
-Aiming to be useful, easy to read, and provide as many valuable information to learners and professionals as possible:
+Aiming to be useful, easy to read, and provide as many valuable information to learners and professionals as possible:  
 Commands are organized by topic,
 >:trophy: Best practices are presented,
 
