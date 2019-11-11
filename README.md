@@ -8,6 +8,7 @@ This repository aims to gather all the course's switch and router commands in a 
 
 ---
 Aiming to be useful, easy to read, and provide as many valuable information to learners and professionals as possible:  
+
 Commands are organized by topic,
 >:trophy: Best practices are presented,
 
