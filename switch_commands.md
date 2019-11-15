@@ -12,7 +12,7 @@
 ## Before we start: Configuration modes
 Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).  
 
-Mode (prompt)|Explanation (sorta)|Mode change (current -> next)
+Mode (prompt)|Device configuration mode|"Mode change" command (current -> next)
 ---|---|---
 ``S1>``|EXEC mode|type ``enable`` to pass to next mode
 ``S1#``|Privileged EXEC mode|type ``configure terminal`` to pass to next mode
@@ -43,7 +43,21 @@ Command|Additional Notes
 ``S1#show vlan brief``|**only** displays VLANs, statuses, names, and assigned ports
 ``S1#show interface vlan [id]``|
 ``S1#show interfaces trunk``|
-### TODO shows de troncales
+
+
+## A _basic_ initial device configuration (recommended)
+Command|Additional Notes
+---|---
+``S1(config)#no ip domain-lookup``|
+``S1(config)#cdp run``|
+``S1(config)#line console 0``|
+``S1(config-line)#logging synchronous``|
+``S1(config-line)#history size [lines]``|
+``S1(config-line)#exec-timeout [minutes] [seconds]``|
+``S1(config-line)#end``|exit to EXEC privileged mode, where the next command will be executed
+``S1#copy running-config startup-config``|Saves the running configuration to the NVRAM
+
+---
 
 ## Configuring SSH
 Command|Additional Notes

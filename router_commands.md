@@ -36,6 +36,21 @@ Command|Additional Notes
 ``R1#show startup-config``|display config saved in NVRAM
 ``R1#show history``|
 
+
+## A _basic_ initial device configuration (recommended)
+Command|Additional Notes
+---|---
+``R1(config)#no ip domain-lookup``|
+``R1(config)#cdp run``|
+``R1(config)#line console 0``|
+``R1(config-line)#logging synchronous``|
+``R1(config-line)#history size [lines]``|
+``R1(config-line)#exec-timeout [minutes] [seconds]``|
+``R1(config-line)#end``|exit to EXEC privileged mode, where the next command will be executed
+``R1#copy running-config startup-config``|Saves the running configuration to the NVRAM
+
+---
+
 ### Filtering information from ``show``
 
 (you guessed, coming soon :blush: :sweat_smile:)
