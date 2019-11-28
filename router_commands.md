@@ -89,7 +89,9 @@ Command|Additional Notes
 Command|Additional Notes
 ---|---
 ``R1(config)#ip nat inside source static [local-add] [global-add]``|configure static nat, specifying the local address that will be mapped to a global address
+
 :bulb: Recall: After this, always remember to specify the inside and outside interfaces
+
 Command|Additional Notes
 ---|---
 ``R1(config)#interface [int-id]``|
