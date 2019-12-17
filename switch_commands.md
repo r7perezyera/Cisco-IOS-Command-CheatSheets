@@ -13,14 +13,14 @@
 - [Configuring Sticky Port Security](closed_lock_with_key-configuring-sticky-port-security)
 - [Verifying Port Security & secure MAC addresses](closed_lock_with_key-white_check_mark-verifying-port-security-&-secure-mac-addresses)
 - [``Err-disabled`` interfaces](#bringing-an-err-disabled-interface-back-up)
-- [VLAN section](#VLANS)
+- [**VLAN section**](#VLANS)
     - [Configuring VLANs](#configuring-vlans)
-- [Deleting VLANS](#deleting-a-vlan)
-- [Removing interface(s) from a VLAN](removing-interfaces-from-a-vlan)
-- [Configuring Trunks](#configuring-ieee-802.1q-trunk-links)
-- [VLAN troubleshooting](troubleshooting-vlans)
-- [Trunk link troubleshooting](troubleshooting-trunks)
-- [Voice VLANs](voice-vlans)
+    - [Deleting VLANS](#deleting-a-vlan)
+    - [Removing interface(s) from a VLAN](removing-interfaces-from-a-vlan)
+    - [Configuring Trunks](#configuring-ieee-802.1q-trunk-links)
+    - [VLAN troubleshooting](troubleshooting-vlans)
+    - [Trunk link troubleshooting](troubleshooting-trunks)
+    - [Voice VLANs](voice-vlans)
 
 ---
 
