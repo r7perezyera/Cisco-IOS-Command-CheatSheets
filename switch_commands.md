@@ -5,7 +5,11 @@
 
 ## Table of contents
 
-
+- [Important show commands](#important-show-commands)
+- [Configuring SSH](#configuring-ssh)
+- []()
+- [Configuring Dynamic Port Security](#:closed_lock_with_key:-configuring-dynamic-port-security)
+- []()
 
 ---
 
