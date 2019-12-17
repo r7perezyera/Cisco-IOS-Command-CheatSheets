@@ -5,7 +5,7 @@
 
 ## Table of contents
 
-- [Important show commands](#important-show-commands)
+- [Important ``show`` commands](#important-show-commands)
 - [Configuring SSH](#configuring-ssh)
 - [Modifying SSH configuration](#modifying-ssh-configuration)
 - [Interface ranges](#managing-more-than-one-interface-at-the-same-time)
