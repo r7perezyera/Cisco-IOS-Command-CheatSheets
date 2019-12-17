@@ -5,7 +5,22 @@
 
 ## Table of contents
 
-
+- [Important ``show`` commands](#important-show-commands)
+- [Configuring SSH](#configuring-ssh)
+- [Modifying SSH configuration](#modifying-ssh-configuration)
+- [Interface ranges](#managing-more-than-one-interface-at-the-same-time)
+- [Configuring Dynamic Port Security](#closed_lock_with_key-configuring-dynamic-port-security)
+- [Configuring Sticky Port Security](#closed_lock_with_key-configuring-sticky-port-security)
+- [Verifying Port Security & secure MAC addresses](#closed_lock_with_key-white_check_mark-verifying-port-security-&-secure-mac-addresses)
+- [``Err-disabled`` interfaces](#bringing-an-err-disabled-interface-back-up)
+- [**VLANs**](#VLANS)
+    - [Configuring VLANs](#configuring-vlans)
+    - [Deleting VLANS](#deleting-a-vlan)
+    - [Removing interface(s) from a VLAN](removing-interfaces-from-a-vlan)
+    - [Configuring Trunks](#configuring-ieee-802.1q-trunk-links)
+    - [VLAN troubleshooting](#troubleshooting-vlans)
+    - [Trunk link troubleshooting](#troubleshooting-trunks)
+    - [Voice VLANs](#voice-vlans)
 
 ---
 
@@ -120,7 +135,7 @@ Command|Additional Notes
 ``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
 
 ## :closed_lock_with_key: :white_check_mark: Verifying Port Security & secure MAC addresses
-No that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
+Now that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
 
 Command|Additional Notes
 ---|---
@@ -141,7 +156,7 @@ Command|Additional Notes
 ### Configuring VLANs
 Command|Additional Notes
 ---|---
-``S1(config)#vlan 20``|create a VLAN
+``S1(config)#vlan [vlan-ID]``|create VLAN and assign its VLAN number
 ``S1(config-vlan)#name [someName]``| assign a name to the VLAN
 
 Now it is time to assign ports to the newly created VLAN  
@@ -177,6 +192,8 @@ Command|Additional Notes
 ``S1(config-if)#switchport trunk native vlan [vlan-id]``|
 ``S1(config-if)#switchport trunk allowed vlan [vlan-list]``|**All** allowed VLAN IDs.
 ``S1(config-if)#switchport trunk allowed vlan remove [vlan-id]``|:no_pedestrians: **PROHIBITS ONLY** the VLAN with the specified ID on the trunk interface
+
+:bulb: Tip: You might also want to check out the router commands necessary for inter-VLAN-routing via [Router-On-A-Stick](https://github.com/r7perezyera/Cisco-IOS-Command-CheatSheets/blob/master/router_commands.md#configuring-Router-on-a-stick-inter-VLAN-routing)
 
 ### Troubleshooting VLANs
 Command|Additional Notes
