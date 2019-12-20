@@ -5,6 +5,10 @@
 
 ## Table of contents
 
+- [Important ``show`` commands](#important-show-commands)
+- [Output filtering](#filtering-information-from-show)
+- [Recommended initial configuration sequence](#a-basic-initial-device-configuration-recommended)
+- [Netacad recommended initial configuration]()
 - [Router-on-a-stick](#configuring-Router-on-a-stick-inter-VLAN-routing)
 - [Access Control Lists (ACL)](#access-control-lists-(acl))
 
@@ -37,7 +41,21 @@ Command|Additional Notes
 ``R1#show history``|
 
 ## Filtering information from ``show``
+Some commands, such as ``show running-config``, generate multiple lines of output.  
 
+To filter output, you can use the *pipe* (``|``) character along with a **filtering parameter** and a **filtering expression**.
+Filtering expressions|
+---|---
+section|
+include|
+exclude|
+begin|
+
+Here's an example of the usage of filtering with a ``show`` command:  
+``R1#show running-config | include line con``
+
+:bulb: ProTip: By default, the screen of output consists of 24 lines. Should you want to change the number of output lines displayed on the terminal screen, you can use the command: ``R1# terminal length [number-of-lines]``  
+:warning: Unfortunately, this command is NOT supported in Cisco Packet Tracer (tested on version 7.2.2).
 
 ---
 ## A _basic_ initial device configuration (recommended)
@@ -51,8 +69,6 @@ Command|Additional Notes
 ``R1(config-line)#exec-timeout [minutes] [seconds]``|
 ``R1(config-line)#end``|exit to EXEC privileged mode, where the next command will be executed
 ``R1#copy running-config startup-config``|Saves the running configuration to the NVRAM
-
----
 
 
 ## :construction: TODO Router initial configuration best practices :construction:
