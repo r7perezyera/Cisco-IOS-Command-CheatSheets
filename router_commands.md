@@ -58,6 +58,23 @@ Command|Additional Notes
 ## :construction: TODO Router initial configuration best practices :construction:
 According to Cisco Networking Academy course material, the following command sequence constitutes the basic configuration a router should have.
 
+---
+## Static routing
+
+---
+## Dynamic routing: RIP
+
+## Dynamic routing: EIGRP
+
+### Configuration
+
+### Verification
+
+### Fine tuning
+
+## Dynamic routing: OSPF
+
+---
 ## Configuring Router-on-a-stick inter-VLAN routing
 
 To enable router-on-a-stick inter-VLAN routing, we must configure multiple **subinterfaces** (as many as the number of VLANs over which we want to route traffic).  
@@ -103,15 +120,3 @@ Command|Additional Notes
 ``R1(config)#interface [int-id]``|
 ``R1(config-if)#ip nat outside``|
 
----
-## Dynamic routing: RIP
-
-## Dynamic routing: EIGRP
-
-### Configuration
-
-### Verification
-
-### Fine tuning
-
-## Dynamic routing: OSPF
