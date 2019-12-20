@@ -36,7 +36,10 @@ Command|Additional Notes
 ``R1#show startup-config``|display config saved in NVRAM
 ``R1#show history``|
 
+## Filtering information from ``show``
 
+
+---
 ## A _basic_ initial device configuration (recommended)
 Command|Additional Notes
 ---|---
@@ -51,9 +54,9 @@ Command|Additional Notes
 
 ---
 
-### Filtering information from ``show``
 
-(you guessed, coming soon :blush: :sweat_smile:)
+## :construction: TODO Router initial configuration best practices :construction:
+According to Cisco Networking Academy course material, the following command sequence constitutes the basic configuration a router should have.
 
 ## Configuring Router-on-a-stick inter-VLAN routing
 
@@ -83,6 +86,7 @@ Command|Additional Notes
 ``R1(config)#interface [int-id]``|select the interface to which the ACL will be applied
 ``R1(config-if)#ip access-group [number] (in/out)``|activate the ACL on the selected interface
 
+---
 ## NAT
 
 ### Configuring Static NAT
@@ -98,3 +102,16 @@ Command|Additional Notes
 ``R1(config-if)#ip nat inside``|
 ``R1(config)#interface [int-id]``|
 ``R1(config-if)#ip nat outside``|
+
+---
+## Dynamic routing: RIP
+
+## Dynamic routing: EIGRP
+
+### Configuration
+
+### Verification
+
+### Fine tuning
+
+## Dynamic routing: OSPF
