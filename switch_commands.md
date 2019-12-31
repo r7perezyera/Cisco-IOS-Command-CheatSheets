@@ -21,6 +21,7 @@
     - [VLAN troubleshooting](#troubleshooting-vlans)
     - [Trunk link troubleshooting](#troubleshooting-trunks)
     - [Voice VLANs](#voice-vlans)
+- [VLAN management with VTP](#VLAN-trunking-protocol-VTP)
 
 ---
 
@@ -220,3 +221,18 @@ Command|Additional Notes
 ``S1(config-if)#switchport access vlan [vlan-id]``|
 ``S1(config-if)#mls qos trust cos``|set trusted state of an interface and indicate which packet fields are used to classify traffic
 ``S1(config-if)#switchport voice vlan [vlan-id]``|assign a voice VLAN to that port
+
+
+## VLAN trunking protocol (VTP)
+Command|Additional Notes
+---|---
+``S1(config)#vtp mode [mode]``|mode can be ``server`` or ``client``
+``S1(config)#vtp password [password]``|optional - :warning: password is case-sensitive
+``S1(config)#vtp domain [name]``|optional - :warning: domain name is case sensitive as well
+``S1(config)#vtp pruning``|optional - configure VTP pruning on server
+``S1(config)#vtp version 2``|optional - enables VTP version 2
+
+:heavy_exclamation_mark: After this, remember to enable trunk links between the *VTP domain* switches so *VTP advertisements* can be shared among the switches.
+This command sequence is all that's needed to get VTP running on our *VTP domain* :white_check_mark:
+
+:bulb: Tip: There are 3 VTP versions. Versions 1 and 2 (which are within the scope of the CCNA exam) **DO NOT** support *extended-range VLANS* (ID from 1006 to 4095). VTP version 3 (NOT covered on the CCNA exam) does support such VLANS.
