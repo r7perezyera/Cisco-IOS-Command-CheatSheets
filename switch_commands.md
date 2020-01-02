@@ -23,6 +23,7 @@
     - [Voice VLANs](#voice-vlans)
 - [VLAN management with VTP](#VLAN-trunking-protocol-VTP)
     - [VTP verification](#VTP-verification)
+- [STP](#Spanning-Tree-Protocol)
 
 ---
 
@@ -245,3 +246,40 @@ Command|Additional Notes
 ``S1#show vtp status``|verify your configuration and the status of VTP on the device
 ``S1#show vtp password``|verify the configured VTP password
 ``S1#show vlan brief``|this VLAN verification command might be useful as well when verifying VTP configuration
+
+
+## Spanning Tree protocol
+
+### Bridge ID configuration
+Command|Additional Notes
+---|---
+``S1(config)#spanning-tree vlan [vlan-id] root primary``|ensures this switch has the lowest priority value
+``S1(config)#spanning-tree vlan [vlan-id] root secondary``|Use if the configuration of an alternative bridge is desired. Sets the switch priority value to ensure it becomes the root bridge if the primary root bridge fails.
+``S1(config)#spanning-tree vlan [vlan-id] priority [priority]``|manually configure the bridge's priority value
+:bulb: Recall: priority values are between 0 and 61,440.  
+:warning: The priority value can only be a multiple of 4096
+
+### Bridge ID Verification
+Command|Additional Notes
+---|---
+``S1#show spanning-tree``|verify current spanning-tree instances and root bridges
+### PortFast and BPDU guard
+Must only be configured on interfaces connected point-to-point to an end device
+
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|access the interface
+``S1(config)#interface range [int-type][lowest-id]-[highest-id]``|access a range of contiguous interfaces if necessary
+``S1(config-if)#switchport mode access``|as a good practice, hard-type this command so the switchport is in access mode
+``S1(config-if)#spanning-tree portfast``|enables PortFast on the access port(s)
+``S1(config-if)#spanning-tree bpduguard enable``|enables BPDU Guard on the access port(s)
+``S1(config)#spanning-tree portfast default``|:warning: configures PortFast to be the default for all switch interfaces
+``S1(config)#spanning-tree bpduguard default``|:warning: configures BPDU Guard to be the default for all switch interfaces
+
+### PortFast and BPDU guard verification
+
+Command|Additional Notes
+---|---
+``S1#show running-config | begin spanning-tree``|display spanning tree features configured on the switch
+
+``S1#show running-config interface [int-id]``|display the current configuration portion corresponding to the interface
