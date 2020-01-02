@@ -22,6 +22,7 @@
     - [Trunk link troubleshooting](#troubleshooting-trunks)
     - [Voice VLANs](#voice-vlans)
 - [VLAN management with VTP](#VLAN-trunking-protocol-VTP)
+    - [VTP verification](#VTP-verification)
 
 ---
 
@@ -236,3 +237,11 @@ Command|Additional Notes
 This command sequence is all that's needed to get VTP running on our *VTP domain* :white_check_mark:
 
 :bulb: Tip: There are 3 VTP versions. Versions 1 and 2 (which are within the scope of the CCNA exam) **DO NOT** support *extended-range VLANS* (ID from 1006 to 4095). VTP version 3 (NOT covered on the CCNA exam) does support such VLANS.
+
+### VTP verification
+
+Command|Additional Notes
+---|---
+``S1#show vtp status``|verify your configuration and the status of VTP on the device
+``S1#show vtp password``|verify the configured VTP password
+``S1#show vlan brief``|this VLAN verification command might be useful as well when verifying VTP configuration
