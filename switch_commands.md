@@ -256,6 +256,7 @@ Command|Additional Notes
 ``S1(config)#spanning-tree vlan [vlan-id] root primary``|ensures this switch has the lowest priority value
 ``S1(config)#spanning-tree vlan [vlan-id] root secondary``|Use if the configuration of an alternative bridge is desired. Sets the switch priority value to ensure it becomes the root bridge if the primary root bridge fails.
 ``S1(config)#spanning-tree vlan [vlan-id] priority [priority]``|manually configure the bridge's priority value
+
 :bulb: Recall: priority values are between 0 and 61,440.  
 :warning: The priority value can only be a multiple of 4096
 
