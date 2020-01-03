@@ -1,6 +1,6 @@
 # :construction: Work in progress! :construction:
 
-# CCNA2 Switch command cheat-sheet
+# CCNA Switch command cheat-sheet
 #### Useful switch commands for CCNA2 (Routing and Switching Essentials) Cisco Networking Academy course.
 
 ## Table of contents
@@ -248,7 +248,7 @@ Command|Additional Notes
 ``S1#show vlan brief``|this VLAN verification command might be useful as well when verifying VTP configuration
 
 
-## Spanning Tree protocol
+## Spanning Tree Protocol
 
 ### Bridge ID configuration
 Command|Additional Notes
@@ -282,5 +282,26 @@ Command|Additional Notes
 Command|Additional Notes
 ---|---
 ``S1#show running-config | begin spanning-tree``|display spanning tree features configured on the switch
-
 ``S1#show running-config interface [int-id]``|display the current configuration portion corresponding to the interface
+
+
+### Configuring Rapid PVST+
+PVST+ is the STP flavor operating by default on Cisco switches.
+To configure Rapid PVST+, we just need to type a global command.
+Command|Additional Notes
+---|---
+``S1(config)#spanning-tree mode rapid-pvst``|configure Rapid PVST+ as the STP mode on the switch
+``S1(config-if)#spanning-tree link-type point-to-point``|specify that a link is point-to-point
+``S1#clear spanning-tree detected-protocols (interface [int-id])``|forces renegotiation with neighboring switches on all interfaces or the specified interface
+
+### General STP verification commands
+
+Command|Additional Notes
+---|---
+``S1#show spanning-tree``|display STP information - useful to find information about the bridge you are in, and the root bridge at a glance
+``S1#show spanning-tree active``|display STP information for active interfaces only
+``S1#show spanning-tree brief``|at-a-glance information for all STP instances running on the switch
+``S1#show spanning-tree detail``|detailed information for all STP instances running on the switch
+``S1#show spanning-tree interface [int-id]``|STP information for the specified interface
+``S1#show spanning-tree vlan [vlan-id]``|STP information for the specified VLAN
+``S1#show spanning-tree summary``|summary of STP port states
