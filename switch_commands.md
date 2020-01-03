@@ -287,7 +287,7 @@ Command|Additional Notes
 
 ### Configuring Rapid PVST+
 PVST+ is the STP flavor operating by default on Cisco switches.
-To configure Rapid PVST+, we just need to type a global command.
+To configure Rapid PVST+, we just need to type a global command.  
 Command|Additional Notes
 ---|---
 ``S1(config)#spanning-tree mode rapid-pvst``|configure Rapid PVST+ as the STP mode on the switch
