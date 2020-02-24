@@ -28,7 +28,7 @@ Feel free to begin exploring!
 ## Author
 __Roberto Téllez Perezyera__ - Computer science and software engineering student - [linkedin](https://www.linkedin.com/in/r7perezyera/)  
 - Computer  networking enthusiast  
-- Currently preparing to take the _CCNA: Routing and Switching_ certification exam.
+- Cisco Certified Networking Associate Routing & Switching :star2:
 
 ---
 ## Motivation
