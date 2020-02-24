@@ -28,7 +28,7 @@ Feel free to begin exploring!
 ## Author
 __Roberto Téllez Perezyera__ - Computer science and software engineering student - [linkedin](https://www.linkedin.com/in/r7perezyera/)  
 - Computer  networking enthusiast  
-- Cisco Certified Networking Associate Routing & Switching :star2:
+- Cisco Certified Network Associate Routing & Switching :star2:
 
 ---
 ## Motivation
