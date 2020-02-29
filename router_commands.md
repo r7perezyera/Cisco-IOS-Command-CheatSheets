@@ -42,7 +42,7 @@ Command|Additional Notes
 ``R1#show startup-config``|display config saved in NVRAM
 ``R1#show history``|
 
-## Filtering information from ``show``
+## Filtering information from ``show`` commands:
 Some commands, such as ``show running-config``, generate multiple lines of output.  
 
 To filter output, you can use the *pipe* (``|``) character along with a **filtering parameter** and a **filtering expression**.
@@ -60,17 +60,6 @@ Here's an example of the usage of filtering with a ``show`` command:
 :warning: Unfortunately, this command is NOT supported in Cisco Packet Tracer (tested on version 7.2.2).
 
 ---
-## A _basic_ initial device configuration (recommended)
-Command|Additional Notes
----|---
-``R1(config)#no ip domain-lookup``|
-``R1(config)#cdp run``|
-``R1(config)#line console 0``|
-``R1(config-line)#logging synchronous``|
-``R1(config-line)#history size [lines]``|
-``R1(config-line)#exec-timeout [minutes] [seconds]``|
-``R1(config-line)#end``|exit to EXEC privileged mode, where the next command will be executed
-``R1#copy running-config startup-config``|Saves the running configuration to the NVRAM
 
 
 ## :construction: TODO Router initial configuration best practices :construction:

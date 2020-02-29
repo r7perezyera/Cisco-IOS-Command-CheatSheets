@@ -64,18 +64,23 @@ Command|Additional Notes
 ``S1#show interface vlan [id]``|
 ``S1#show interfaces trunk``|
 
+## Filtering information from ``show`` commands:
+Some commands, such as ``show running-config``, generate multiple lines of output.  
 
-## A _basic_ initial device configuration (recommended)
-Command|Additional Notes
+To filter output, you can use the *pipe* (``|``) character along with a **filtering parameter** and a **filtering expression**.
+Filtering expressions|
 ---|---
-``S1(config)#no ip domain-lookup``|
-``S1(config)#cdp run``|
-``S1(config)#line console 0``|
-``S1(config-line)#logging synchronous``|
-``S1(config-line)#history size [lines]``|
-``S1(config-line)#exec-timeout [minutes] [seconds]``|
-``S1(config-line)#end``|exit to EXEC privileged mode, where the next command will be executed
-``S1#copy running-config startup-config``|Saves the running configuration to the NVRAM
+section|
+include|
+exclude|
+begin|
+
+Here's an example of the usage of filtering with a ``show`` command:  
+``R1#show running-config | include line con``
+
+:bulb: ProTip: By default, the screen of output consists of 24 lines. Should you want to change the number of output lines displayed on the terminal screen, you can use the command: ``R1# terminal length [number-of-lines]``  
+:warning: Unfortunately, this command is NOT supported in Cisco Packet Tracer (tested on version 7.2.2).
+
 
 ---
 
