@@ -1,6 +1,6 @@
 # A recommended basic initial device configuration 
 
-You might find convenient to execute the following sequence of commands before doing any other configuration of troubleshooting tasks on your Cisco device, in order to improve your workflow on the terminal.
+You might find convenient to execute the following sequence of commands before doing any other configuration or troubleshooting tasks on your Cisco device, in order to improve your workflow on the terminal.
 
 You will find a command-and-explanation table right below, and a text box with the same command sequence **you can copy and paste on your device's terminal** after that.
 
