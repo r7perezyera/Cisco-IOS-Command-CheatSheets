@@ -19,8 +19,8 @@ Command|Additional Notes
 ``CDevice(config-line)#end``|exit to EXEC privileged mode, where the next command will be executed
 ``CDevice#copy running-config startup-config``|Saves the running configuration to the NVRAM
 
-You can copy the same sequence, contained in the text box below, and paste it in your Cisco device, whether it is a real-world physical Cisco device, or a simulated device in an environment like Packet Tracer.
-:bulb: Note that the commands below are abbreviated. Still. They should work just fine.
+You can copy the same sequence, contained in the text box below, and paste it in your Cisco device, whether it is a real-world physical Cisco device, or a simulated device in an environment like Packet Tracer.  
+:bulb: Note that the commands below are abbreviated. Still. They should work just fine.  
 :bulb: Be sure to select and copy up to the blank line below the last command. That way, such last command will be executed without you having to manually press enter. 
 
 ```
