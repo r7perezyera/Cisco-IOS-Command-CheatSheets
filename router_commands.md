@@ -3,7 +3,7 @@
 # CCNA Router command cheat-sheet
 #### Useful router commands for CCNA2 v6 (Routing and Switching Essentials) Cisco Networking Academy course.
 ---
-### :warning: Please note that CCNA v6 is outdated! As of February 24 2020 the new exam version (200-301) and Netacad course material are available.  I'm doing my best to keep these cheat-sheets updated with the same content you can find in the new Netacad course versions.
+### :warning: Please note that CCNA v6 is outdated! As of February 24 2020 the new exam version (200-301) and Netacad course material are available.  However, I'm doing my best to keep these cheat-sheets updated with the same content you can find in the new Netacad course versions.
 ---
 ## Table of contents
 
