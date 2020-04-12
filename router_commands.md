@@ -53,6 +53,7 @@ Filtering parameters|Effect
 ``exclude [filtering-expression]``|excludes all lines of output that match the _filtering expression_
 ``begin [filtering-expression]``|shows all the lines of output **beginning from** the line that matches the _filtering expression_
 
+### Usage:
 Here's an example of the usage of filtering with a ``show`` command:  
 ``R1#show running-config | include line con``
 
