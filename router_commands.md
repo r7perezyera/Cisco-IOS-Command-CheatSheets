@@ -46,12 +46,12 @@ Command|Additional Notes
 Some commands, such as ``show running-config``, generate multiple lines of output.  
 
 To filter output, you can use the *pipe* (``|``) character along with a **filtering parameter** and a **filtering expression**.
-Filtering expressions|
+Filtering expressions| 
 ---|---
-``section``|
-``include``|
-``exclude``|
-``begin``|
+``section``| 
+``include``| 
+``exclude``| 
+``begin``| 
 
 Here's an example of the usage of filtering with a ``show`` command:  
 ``R1#show running-config | include line con``
