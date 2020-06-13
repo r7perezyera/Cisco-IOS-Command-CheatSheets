@@ -122,7 +122,7 @@ Command|Additional Notes
 :bulb: Recall: After this, **always remember** to specify the **inside** and **outside** interfaces.  
 >Though it might be easy for us to identify them with our topology diagram, it's not that easy for the router.
 
-Command|
+Command|Additional notes
 ---|---
 ``R1(config)#interface [int-id]``|ID of the _inside_ interface
 ``R1(config-if)#ip nat inside``|
