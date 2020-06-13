@@ -124,8 +124,8 @@ Command|Additional Notes
 
 Command|
 ---|---
-``R1(config)#interface [int-id]``|
+``R1(config)#interface [int-id]``|ID of the _inside_ interface
 ``R1(config-if)#ip nat inside``|
-``R1(config)#interface [int-id]``|
+``R1(config)#interface [int-id]``|ID of the _outside_ interface
 ``R1(config-if)#ip nat outside``|
 
