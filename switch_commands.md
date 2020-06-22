@@ -8,21 +8,22 @@
 ## Table of contents
 
 - [Important ``show`` commands](#important-show-commands)
-- [Configuring SSH](#configuring-ssh)
-- [Modifying SSH configuration](#modifying-ssh-configuration)
 - [Interface ranges](#managing-more-than-one-interface-at-the-same-time)
-- [Configuring Dynamic Port Security](#closed_lock_with_key-configuring-dynamic-port-security)
-- [Configuring Sticky Port Security](#closed_lock_with_key-configuring-sticky-port-security)
-- [Verifying Port Security & secure MAC addresses](#closed_lock_with_key-white_check_mark-verifying-port-security-&-secure-mac-addresses)
-- [``Err-disabled`` interfaces](#bringing-an-err-disabled-interface-back-up)
 - [**VLANs**](#VLANS)
     - [Configuring VLANs](#configuring-vlans)
     - [Deleting VLANS](#deleting-a-vlan)
     - [Removing interface(s) from a VLAN](removing-interfaces-from-a-vlan)
     - [Configuring Trunks](#configuring-ieee-802.1q-trunk-links)
+    - [Dynamic Trunking Protocol](#dynamic-trunking-protocol-DTP)
     - [VLAN troubleshooting](#troubleshooting-vlans)
     - [Trunk link troubleshooting](#troubleshooting-trunks)
     - [Voice VLANs](#voice-vlans)
+- [Configuring SSH](#configuring-ssh)
+- [Modifying SSH configuration](#modifying-ssh-configuration)
+- [Configuring Dynamic Port Security](#closed_lock_with_key-configuring-dynamic-port-security)
+- [Configuring Sticky Port Security](#closed_lock_with_key-configuring-sticky-port-security)
+- [Verifying Port Security & secure MAC addresses](#closed_lock_with_key-white_check_mark-verifying-port-security-&-secure-mac-addresses)
+- [``Err-disabled`` interfaces](#bringing-an-err-disabled-interface-back-up)
 - [VLAN management with VTP](#VLAN-trunking-protocol-VTP)
     - [VTP verification](#VTP-verification)
 - [STP](#Spanning-Tree-Protocol)
@@ -84,37 +85,14 @@ Here's an example of the usage of filtering with a ``show`` command:
 
 
 ---
-
-## Configuring SSH
-Command|Additional Notes
----|---
-``S1#show ip ssh``|Use it to verify that the switch supports SSH
-``S1(config)#ip domain-name [domain-name]``|
-``S1(config)#crypto key generate rsa``|
-``S1(config)#username [admin] secret [ccna]``|
-``S1(config)#line vty 0 15``|
-``S1(config-line)#transport input ssh``|
-``S1(config-line)#login local ``|
-``S1(config-line)#exit``|
-``S1(config)#ip ssh version 2``|enable SSH version 2
-``S1(config)#crypto key zeroise rsa``|:warning: use to **delete** RSA key pair
-
-### Modifying SSH configuration
-Command|Additional Notes
----|---
-``S1(config)#ip ssh time-out [time]``|Change timeout setting (time in seconds)
-``S1(config)#ip ssh authentication-retries [retries]``|Change number of allowed authentication attempts
-
-Verify your newly configured settings with ``S1#show ip ssh``
-
 ## Managing more than one interface at the same time
 When we want to execute a sequence on commands on more than one port, selecting an interface range makes the job a lot easier.  
 Use: ``S1(config)#interface range [typeModule/firstNumber]-[lastNumber]``
 
-*typeModule*s|abbreviation
+*typeModule*s|some possible abbreviations
 ---|---
-``FastEthernet``|``f``
-``GigabitEthernet``|``g``
+``FastEthernet``|``f, fa, ...``
+``GigabitEthernet``|``g, gi, gig, ...``
 
 Here's an example:
 ``S1(config)#interface range f0/1-12``  
@@ -125,43 +103,7 @@ Here's an example:
 
 You might need to use it frequently on scenarios where the following blocks of commands are used.
 
-## :closed_lock_with_key: Configuring Dynamic Port Security
-Command|Additional Notes
----|---
-``S1(config)#interface [int-id]``|
-``S1(config-if)#switchport mode access``|Set interface mode to *access*.
-``S1(config-if)#switchport port-security``|Enable port security on the interface
-``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
-
->:trophy: **Best practice:** It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode trunk``).
-
-## :closed_lock_with_key: Configuring Sticky Port Security
-Command|Additional Notes
----|---
-``S1(config)#interface [int-id]``|
-``S1(config-if)#switchport mode access``|Set interface mode to *access*.
-``S1(config-if)#switchport port-security``|Enable port security on the interface
-``S1(config-if)#switchport port-security maximum [max-addresses]``|Set maximum number of secure MAC addresses allowed on port
-``S1(config-if)#switchport port-security mac-address sticky``|Enable sticky learning
-``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
-
-## :closed_lock_with_key: :white_check_mark: Verifying Port Security & secure MAC addresses
-Now that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
-
-Command|Additional Notes
----|---
-``S1#show port-security interface [int-id]``|displays interface's Port Security configuration. If violations occured, they can be checked here.
-``S1#show port-security address``|displays secure MAC addresses configured on **all switch interfaces**
-``S1#show interface [int-id] status``|displays port status. Useful to verify if an interface is in ``err-disabled`` status.
-
-## Bringing an ``err-disabled`` interface back up
-
-:bulb: Recall: After a violation, a port in **Shutdown violation mode** changes its status to *error disabled*, and is effectively **shut down**. To resume operation (sending and receiving traffic), we must bring it back up. Here's how:
-
-* Access the interface configuration mode with ``S1(config)#interface [int-id]``.
-* Shut the interface down using ``S1(config-if)#shutdown``.
-* Bring the interface back up using ``S1(config-if)#no shutdown``.
-
+---
 ## VLANs
 
 ### Configuring VLANs
@@ -206,6 +148,24 @@ Command|Additional Notes
 
 :bulb: Tip: You might also want to check out the router commands necessary for inter-VLAN-routing via [Router-On-A-Stick](https://github.com/r7perezyera/Cisco-IOS-Command-CheatSheets/blob/master/router_commands.md#configuring-Router-on-a-stick-inter-VLAN-routing)
 
+### Dynamic Trunking Protocol (DTP)
+
+This Cisco proprietary protocol contributes in the configuration of trunking interfaces between Cisco switches.
+
+:bulb: Remember: The **default** configuration for interfaces on Cisco Catalyst 2960 and 3650 switches is _dynamic auto_.
+
+Command|Additional Notes
+---|---
+``S1(config-if)#switchport mode trunk``|configures an interface to specifically be in **trunk mode**. Also negotiates to convert the neighboring link into a trunk.
+``S1(config-if)#switchport mode access``|configures an interface to specifically be in **access mode**, a NON-trunk interface, even if its neighboring interface is in mode ``trunk``
+``S1(config-if)#switchport mode dynamic auto``|interface will convert into a **trunk interface** if its neighboring interface is in **mode ``trunk`` or ``desirable`` ONLY**
+``S1(config-if)#switchport mode dynamic desirable``|interface will convert into a **trunk interface** if its neighboring interface is in **mode ``trunk``, ``dynamic auto``, or ``dynamic desirable`` ONLY**
+``S1(config-if)#switchport nonegotiate``|:no_entry: stops DTP negotiation, in which interfaces may engage, as you saw above, i.e.,  an interface will NOT change its mode even if the neighboring interface could change it through negotiation
+
+The results of negotiation between neighboring interfaces in different modes is shown in the following table:
+
+
+
 ### Troubleshooting VLANs
 Command|Additional Notes
 ---|---
@@ -222,7 +182,7 @@ Command|Additional Notes
 
 VLANs supporting voice traffic usually have quality of service (QoS). Voice traffic must have a *trusted* label.
 
->Note that the implementation of QoS is beyond the scope of the CCNA2 course.
+>Note that the implementation of QoS is beyond the scope of the CCNA2 (version 6) course.
 
 Command|Additional Notes
 ---|---
@@ -231,6 +191,70 @@ Command|Additional Notes
 ``S1(config-if)#switchport access vlan [vlan-id]``|
 ``S1(config-if)#mls qos trust cos``|set trusted state of an interface and indicate which packet fields are used to classify traffic
 ``S1(config-if)#switchport voice vlan [vlan-id]``|assign a voice VLAN to that port
+
+---
+---
+## Configuring SSH
+Command|Additional Notes
+---|---
+``S1#show ip ssh``|Use it to verify that the switch supports SSH
+``S1(config)#ip domain-name [domain-name]``|
+``S1(config)#crypto key generate rsa``|
+``S1(config)#username [admin] secret [ccna]``|
+``S1(config)#line vty 0 15``|
+``S1(config-line)#transport input ssh``|
+``S1(config-line)#login local ``|
+``S1(config-line)#exit``|
+``S1(config)#ip ssh version 2``|enable SSH version 2
+``S1(config)#crypto key zeroise rsa``|:warning: use to **delete** RSA key pair
+
+### Modifying SSH configuration
+Command|Additional Notes
+---|---
+``S1(config)#ip ssh time-out [time]``|Change timeout setting (time in seconds)
+``S1(config)#ip ssh authentication-retries [retries]``|Change number of allowed authentication attempts
+
+Verify your newly configured settings with ``S1#show ip ssh``
+
+
+## :closed_lock_with_key: Configuring Dynamic Port Security
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|
+``S1(config-if)#switchport mode access``|Set interface mode to *access*.
+``S1(config-if)#switchport port-security``|Enable port security on the interface
+``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
+
+>:trophy: **Best practice:** It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode trunk``).
+
+## :closed_lock_with_key: Configuring Sticky Port Security
+Command|Additional Notes
+---|---
+``S1(config)#interface [int-id]``|
+``S1(config-if)#switchport mode access``|Set interface mode to *access*.
+``S1(config-if)#switchport port-security``|Enable port security on the interface
+``S1(config-if)#switchport port-security maximum [max-addresses]``|Set maximum number of secure MAC addresses allowed on port
+``S1(config-if)#switchport port-security mac-address sticky``|Enable sticky learning
+``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
+
+## :closed_lock_with_key: :white_check_mark: Verifying Port Security & secure MAC addresses
+Now that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
+
+Command|Additional Notes
+---|---
+``S1#show port-security interface [int-id]``|displays interface's Port Security configuration. If violations occured, they can be checked here.
+``S1#show port-security address``|displays secure MAC addresses configured on **all switch interfaces**
+``S1#show interface [int-id] status``|displays port status. Useful to verify if an interface is in ``err-disabled`` status.
+
+## Bringing an ``err-disabled`` interface back up
+
+:bulb: Recall: After a violation, a port in **Shutdown violation mode** changes its status to *error disabled*, and is effectively **shut down**. To resume operation (sending and receiving traffic), we must bring it back up. Here's how:
+
+* Access the interface configuration mode with ``S1(config)#interface [int-id]``.
+* Shut the interface down using ``S1(config-if)#shutdown``.
+* Bring the interface back up using ``S1(config-if)#no shutdown``.
+
+
 
 
 ## VLAN trunking protocol (VTP)
