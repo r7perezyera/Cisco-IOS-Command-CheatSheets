@@ -1,9 +1,10 @@
 # :construction: Work in progress! :construction:
 
 # CCNA Switch command cheat-sheet
-#### Useful switch commands for CCNA2 v6 (Routing and Switching Essentials) Cisco Networking Academy course.
+#### Useful command collection for Cisco Switches. Based on Cisco Networking Academy CCNA version 6 and version 7 course material, and recommended for CCNA exam preparation.
+
 ---
-### :warning: Please note that CCNA v6 is outdated! As of February 24 2020 the new exam version (200-301) and Netacad course material are available.  However, I'm doing my best to keep these cheat-sheets updated with the same content you can find in the new Netacad course versions.
+### :warning: Please note that CCNA v6 is outdated! As of February 24 2020 the new exam version (200-301) and Netacad course material are available.  I'm doing my best to keep the cheat-sheets updated with content any network professional working with Cisco switches may find useful. Although the contents are currently based mainly on Netacad version 6 and 7 courses for the CCNA exam.
 ---
 ## Table of contents
 
