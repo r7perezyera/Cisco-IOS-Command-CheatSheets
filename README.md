@@ -11,9 +11,9 @@ This project aims to gather all the course's switch and router commands in a spa
 Aiming to be useful, easy to read, and provide as many valuable information to learners and professionals as possible:  
 
 Commands are organized by topic,
->:trophy: Best practices are presented,
+>:trophy: best practices are presented,
 
-:bulb: As well as important reminders and tips 
+:bulb: as well as important configuration, verification, and troubleshooting reminders and tips 
 
 ---
 Feel free to begin exploring!
@@ -42,7 +42,7 @@ Feel free to begin exploring!
 ## Author
 __Roberto Téllez Perezyera__ - Computer science and software engineering student :school_satchel: | [Linkedin](https://www.linkedin.com/in/r7perezyera/)  
 - Computer  networking enthusiast  
-- :star2:Cisco Certified Network Associate Routing & Switching
+- :star2: Cisco Certified Network Associate Routing & Switching
     - 200-125 (version 6) exam
 
 ---
