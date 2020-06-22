@@ -26,7 +26,7 @@ Feel free to begin exploring!
 
 ---
 ## :books: Information sources
-- ### Cisco Networking Academy:
+- ### :mortar_board: Cisco Networking Academy:
     - CCNAv7: Switching, Routing, and Wireless Essentials course (version 7)
     - CCNA R&S: Introduction to Networks course (version 6)
     - CCNA R&S: Routing and Switching Essentials course (version 6)
@@ -40,9 +40,10 @@ Feel free to begin exploring!
 
 ---
 ## Author
-__Roberto Téllez Perezyera__ - Computer science and software engineering student - [linkedin](https://www.linkedin.com/in/r7perezyera/)  
+__Roberto Téllez Perezyera__ - Computer science and software engineering student :school_satchel: | [Linkedin](https://www.linkedin.com/in/r7perezyera/)  
 - Computer  networking enthusiast  
-- Cisco Certified Network Associate Routing & Switching :star2:
+- :star2:Cisco Certified Network Associate Routing & Switching
+    - 200-125 (version 6) exam
 
 ---
 ## Motivation
