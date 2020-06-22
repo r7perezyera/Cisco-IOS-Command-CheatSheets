@@ -163,10 +163,6 @@ Command|Additional Notes
 ``S1(config-if)#switchport mode dynamic desirable``|interface will convert into a **trunk interface** if its neighboring interface is in **mode ``trunk``, ``dynamic auto``, or ``dynamic desirable`` ONLY**
 ``S1(config-if)#switchport nonegotiate``|:no_entry: stops DTP negotiation, in which interfaces may engage, as you saw above, i.e.,  an interface will NOT change its mode even if the neighboring interface could change it through negotiation
 
-The results of negotiation between neighboring interfaces in different modes is shown in the following table:
-
-
-
 ### Troubleshooting VLANs
 Command|Additional Notes
 ---|---
