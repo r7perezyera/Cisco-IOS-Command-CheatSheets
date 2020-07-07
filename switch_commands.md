@@ -53,7 +53,7 @@ You can execute them from global configuration mode (``S1(config)#`` prompt) by 
 example:  
 ``S1(config)#do show ip interface brief``  
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show running-config``|N/A
 ``S1#show history``|
@@ -108,27 +108,27 @@ You might need to use it frequently on scenarios where the following blocks of c
 ## VLANs
 
 ### Configuring VLANs
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#vlan [vlan-ID]``|create VLAN and assign its VLAN number
 ``S1(config-vlan)#name [someName]``| assign a name to the VLAN
 
 Now it is time to assign ports to the newly created VLAN  
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|remember, ``interface range`` might be useful
 ``S1(config-if)#switchport mode access``|
 ``S1(config-if)#switchport access vlan [vlan-id]``|assign/change port VLAN
 
 ### Deleting a VLAN
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#no vlan [vlan-id]``|:warning: deletes specified VLAN
 ``S1(config)#delete flash:vlan.dat``|:warning: erases **the whole VLAN database**
 
 ### Removing interface(s) from a VLAN
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|
 ``S1(config-if)#no switchport access vlan [vlan-id]``|remove the VLAN from the port
@@ -139,7 +139,7 @@ Command|Additional Notes
 :bulb: On the other hand, when the ``no switchport access vlan [vlan-id]`` is executed on a switchport, the port will be returned to VLAN 1
 
 ### Configuring IEEE 802.1q trunk links
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|
 ``S1(config-if)#switchport mode trunk``|
@@ -155,7 +155,7 @@ This Cisco proprietary protocol contributes in the configuration of trunking int
 
 :bulb: Remember: The **default** configuration for interfaces on Cisco Catalyst 2960 and 3650 switches is _dynamic auto_.
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config-if)#switchport mode trunk``|configures an interface to specifically be in **trunk mode**. Also negotiates to convert the neighboring link into a trunk.
 ``S1(config-if)#switchport mode access``|configures an interface to specifically be in **access mode**, a NON-trunk interface, even if its neighboring interface is in mode ``trunk``
@@ -164,14 +164,14 @@ Command|Additional Notes
 ``S1(config-if)#switchport nonegotiate``|:no_entry: stops DTP negotiation, in which interfaces may engage, as you saw above, i.e.,  an interface will NOT change its mode even if the neighboring interface could change it through negotiation
 
 ### Troubleshooting VLANs
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show vlan``|check whether a port belongs to the expected VLAN
 ``S1#show mac address-table``|check which addresses were learned on a particular port of the switch, and to which VLAN that port is assigned
 ``S1#show interfaces [int-id] switchport``|helpful in verifying an inactive VLAN is assigned to a port
 
 ### Troubleshooting Trunks
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show interfaces trunk``|- check native VLAN id matches on both ends of link  - check whether a trunk link has been established between switches
 
@@ -181,7 +181,7 @@ VLANs supporting voice traffic usually have quality of service (QoS). Voice traf
 
 >Note that the implementation of QoS is beyond the scope of the CCNA2 (version 6) course.
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|access interface on which the voice VLAN will be assigned
 ``S1(config-if)#switchport mode access``|
@@ -192,7 +192,7 @@ Command|Additional Notes
 ---
 ---
 ## Configuring SSH
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show ip ssh``|Use it to verify that the switch supports SSH
 ``S1(config)#ip domain-name [domain-name]``|
@@ -206,7 +206,7 @@ Command|Additional Notes
 ``S1(config)#crypto key zeroise rsa``|:warning: use to **delete** RSA key pair
 
 ### Modifying SSH configuration
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#ip ssh time-out [time]``|Change timeout setting (time in seconds)
 ``S1(config)#ip ssh authentication-retries [retries]``|Change number of allowed authentication attempts
@@ -215,7 +215,7 @@ Verify your newly configured settings with ``S1#show ip ssh``
 
 
 ## :closed_lock_with_key: Configuring Dynamic Port Security
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|
 ``S1(config-if)#switchport mode access``|Set interface mode to *access*.
@@ -225,7 +225,7 @@ Command|Additional Notes
 >:trophy: **Best practice:** It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode trunk``).
 
 ## :closed_lock_with_key: Configuring Sticky Port Security
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|
 ``S1(config-if)#switchport mode access``|Set interface mode to *access*.
@@ -237,7 +237,7 @@ Command|Additional Notes
 ## :closed_lock_with_key: :white_check_mark: Verifying Port Security & secure MAC addresses
 Now that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show port-security interface [int-id]``|displays interface's Port Security configuration. If violations occured, they can be checked here.
 ``S1#show port-security address``|displays secure MAC addresses configured on **all switch interfaces**
@@ -255,7 +255,7 @@ Command|Additional Notes
 
 
 ## VLAN trunking protocol (VTP)
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#vtp mode [mode]``|mode can be ``server`` or ``client``
 ``S1(config)#vtp password [password]``|optional - :warning: password is case-sensitive
@@ -270,7 +270,7 @@ This command sequence is all that's needed to get VTP running on our *VTP domain
 
 ### VTP verification
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show vtp status``|verify your configuration and the status of VTP on the device
 ``S1#show vtp password``|verify the configured VTP password
@@ -280,7 +280,7 @@ Command|Additional Notes
 ## Spanning Tree Protocol
 
 ### Bridge ID configuration
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#spanning-tree vlan [vlan-id] root primary``|ensures this switch has the lowest priority value
 ``S1(config)#spanning-tree vlan [vlan-id] root secondary``|Use if the configuration of an alternative bridge is desired. Sets the switch priority value to ensure it becomes the root bridge if the primary root bridge fails.
@@ -290,13 +290,13 @@ Command|Additional Notes
 :warning: The priority value can only be a multiple of 4096
 
 ### Bridge ID Verification
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show spanning-tree``|verify current spanning-tree instances and root bridges
 ### PortFast and BPDU guard
 Must only be configured on interfaces connected point-to-point to an end device
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|access the interface
 ``S1(config)#interface range [int-type][lowest-id]-[highest-id]``|access a range of contiguous interfaces if necessary
@@ -308,7 +308,7 @@ Command|Additional Notes
 
 ### PortFast and BPDU guard verification
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show running-config | begin spanning-tree``|display spanning tree features configured on the switch
 ``S1#show running-config interface [int-id]``|display the current configuration portion corresponding to the interface
@@ -319,7 +319,7 @@ Command|Additional Notes
 PVST+ is the STP flavor operating by default on Cisco switches.
 To configure Rapid PVST+, we just need to type a global command.  
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1(config)#spanning-tree mode rapid-pvst``|configure Rapid PVST+ as the STP mode on the switch
 ``S1(config-if)#spanning-tree link-type point-to-point``|specify that a link is point-to-point
@@ -327,7 +327,7 @@ Command|Additional Notes
 
 ### General STP verification commands
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``S1#show spanning-tree``|display STP information - useful to find information about the bridge you are in, and the root bridge at a glance
 ``S1#show spanning-tree active``|display STP information for active interfaces only

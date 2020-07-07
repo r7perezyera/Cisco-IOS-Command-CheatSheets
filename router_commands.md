@@ -11,8 +11,12 @@
 - [Output filtering](#filtering-information-from-show)
 - [Recommended initial configuration sequence](#a-basic-initial-device-configuration-recommended)
 - [Netacad recommended initial configuration]()
-- [Router-on-a-stick](#configuring-Router-on-a-stick-inter-VLAN-routing)
+- [**Static routing**](#static-routing)
+- [**Dynamic routing: OSPF**](#dynamic-routing-ospf)
+- [Routing between VLANS: ROAS](#configuring-Router-on-a-stick-inter-VLAN-routing)
 - [Access Control Lists (ACL)](#access-control-lists-(acl))
+- [DHCPv4](#DHCPv4)
+- [DHCPv6](#DHCPv6)
 
 ---
 ## Before we start: Configuration modes
@@ -36,7 +40,7 @@ You can execute them from global configuration mode (``R1(config)#`` prompt) by 
 example:  
 ``R1(config)#do show ip interface brief``  
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``R1#show running-config``|display config saved in RAM (and the currently running configuration in the device)
 ``R1#show startup-config``|display config saved in NVRAM
@@ -69,17 +73,9 @@ According to Cisco Networking Academy course material, the following command seq
 ---
 ## Static routing
 
+### Types of static routes and their configuration
+
 ---
-## Dynamic routing: RIP
-
-## Dynamic routing: EIGRP
-
-### Configuration
-
-### Verification
-
-### Fine tuning
-
 ## Dynamic routing: OSPF
 
 ---
@@ -90,7 +86,7 @@ Through this process, only one physical interface, and thus, one trunk link, are
 
 In global configuration mode, i.e., ``R1(config)#`` prompt:
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``R1(config)#interface g0/0.[vlan-id]``|create the ``.[vlan-id]`` **subinterface** on interface Gigabit Ethernet 0/0
 ``R1(config-subif)#encapsulation dot1q [vlan-id]``|configure subinterface to operate on a specified VLAN
@@ -99,33 +95,57 @@ Command|Additional Notes
 ``R1(config-subif)#interface g0/0``|access the Gigabit0/0 interface (i.e., the actual physical interface) to enable it
 ``R1(config-if)#no shutdown``|enable the physical interface. This enables **all** configured subinterfaces **on that interface**
 
+---
 ## Access Control Lists (ACL)
 > :construction: Disclaimer: Do keep in mind that work is currently in progress on this section.  
 Additional commands coming soon... :construction:
 
 ### Procedure for configuring Standard ACLs
 
-Command|Additional Notes
+Command|Description
 ---|---
 ``R1(config)#access-list [number] (permit/deny) [address] [wildcard mask]``|create entry in standard IPv4 ACL
 ``R1(config)#interface [int-id]``|select the interface to which the ACL will be applied
 ``R1(config-if)#ip access-group [number] (in/out)``|activate the ACL on the selected interface
 
 ---
+## DHCPv4
+
+### Configure a Cisco router as a DHCPv4 server
+
+---
+## DHCPv6
+
+### Stateless DHCPv6
+
+---
 ## NAT
 
 ### Configuring Static NAT
-Command|Additional Notes
+Command|Description
 ---|---
 ``R1(config)#ip nat inside source static [local-add] [global-add]``|configure static nat, specifying the local address that will be mapped to a global address
 
 :bulb: Recall: After this, **always remember** to specify the **inside** and **outside** interfaces.  
 >Though it might be easy for us to identify them with our topology diagram, it's not that easy for the router.
 
-Command|Additional notes
+Command|Description
 ---|---
 ``R1(config)#interface [int-id]``|ID of the _inside_ interface
 ``R1(config-if)#ip nat inside``|
 ``R1(config)#interface [int-id]``|ID of the _outside_ interface
 ``R1(config-if)#ip nat outside``|
 
+---
+## Legacy section (CCNA version 6, 200-125 exam)
+:warning: **Attention:** the following topics are no longer on the **current** version (7) of the 200-301 CCNA exam.
+
+## Dynamic routing: RIP
+
+## Dynamic routing: EIGRP
+
+### Configuration
+
+### Verification
+
+### Fine tuning
