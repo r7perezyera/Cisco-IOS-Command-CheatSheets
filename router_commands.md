@@ -26,11 +26,20 @@
 ## Before we start: Configuration modes
 Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).  
 
-Mode (prompt)|Explanation (sorta)|Mode change (current -> next)
+Mode (prompt)|Mode|Mode change (current -> next)
 ---|---|---
-``R1>``|EXEC mode|type ``enable`` to pass to next mode
+``R1>``|user EXEC mode  AKA _view-only mode_|type ``enable`` to pass to next mode
 ``R1#``|Privileged EXEC mode|type ``configure terminal`` to pass to next mode
-``R1(config)#``|Global congiguration mode|N/A
+``R1(config)#``|Global configuration mode|N/A
+
+On a Cisco router, from **global configurationmode**, you can also access the two following configuration modes:
+
+Mode (prompt)|Mode
+---|---|---
+``R1(config-if)#``|Interface configuration mode|used to configure an individual interface
+``R1(config-router)#``|Router configuration mode|used when configuring an IPv4 routing protocol
+
+> :bulb: When configuring an IPv6 routing protocol, such as OSPFv3, the router configuration mode prompt will be: ``R1(config-rtr)#``
 
 Common abbreviations to the commands above (separated by commas):
 ```
