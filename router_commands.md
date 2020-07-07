@@ -9,14 +9,18 @@
 
 - [Important ``show`` commands](#important-show-commands)
 - [Output filtering](#filtering-information-from-show)
-- [Recommended initial configuration sequence](#a-basic-initial-device-configuration-recommended)
-- [Netacad recommended initial configuration]()
 - [**Static routing**](#static-routing)
 - [**Dynamic routing: OSPF**](#dynamic-routing-ospf)
 - [Routing between VLANS: ROAS](#configuring-Router-on-a-stick-inter-VLAN-routing)
 - [Access Control Lists (ACL)](#access-control-lists-(acl))
 - [DHCPv4](#DHCPv4)
 - [DHCPv6](#DHCPv6)
+- [Previous exam version content](#legacy-section-CCNA-version-6-200-125-exam)
+    - [Configuring VLANs](#configuring-vlans)
+    - [Configuring VLANs](#configuring-vlans)
+        - [Configuring VLANs](#configuring-vlans)
+        - [Configuring VLANs](#configuring-vlans)
+        - [Configuring VLANs](#configuring-vlans)
 
 ---
 ## Before we start: Configuration modes
@@ -63,12 +67,6 @@ Here's an example of the usage of filtering with a ``show`` command:
 
 :bulb: ProTip: By default, the screen of output consists of 24 lines. Should you want to change the number of output lines displayed on the terminal screen, you can use the command: ``R1# terminal length [number-of-lines]``  
 :warning: Unfortunately, this command is NOT supported in Cisco Packet Tracer (tested on version 7.2.2).
-
----
-
-
-## :construction: TODO Router initial configuration best practices :construction:
-According to Cisco Networking Academy course material, the following command sequence constitutes the basic configuration a router should have.
 
 ---
 ## Static routing
