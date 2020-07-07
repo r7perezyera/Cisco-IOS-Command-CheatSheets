@@ -34,7 +34,7 @@ Mode (prompt)|Mode|Mode change (current -> next)
 
 On a Cisco router, from **global configurationmode**, you can also access the two following configuration modes:
 
-Mode (prompt)|Mode
+Mode (prompt)|Mode|Description
 ---|---|---
 ``R1(config-if)#``|Interface configuration mode|used to configure an individual interface
 ``R1(config-router)#``|Router configuration mode|used when configuring an IPv4 routing protocol
