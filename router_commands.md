@@ -32,7 +32,13 @@ Mode (prompt)|Mode|Mode change (current -> next)
 ``R1#``|Privileged EXEC mode|type ``configure terminal`` to pass to next mode
 ``R1(config)#``|Global configuration mode|N/A
 
-On a Cisco router, from **global configurationmode**, you can also access the two following configuration modes:
+Common abbreviations to the commands above (separated by commas):
+```
+en, ena
+conf t, config term
+```
+
+On a Cisco router, from **global configuration mode**, you can also access the two following configuration modes:
 
 Mode (prompt)|Mode|Description
 ---|---|---
@@ -41,12 +47,7 @@ Mode (prompt)|Mode|Description
 
 > :bulb: When configuring an IPv6 routing protocol, such as OSPFv3, the router configuration mode prompt will be: ``R1(config-rtr)#``
 
-Common abbreviations to the commands above (separated by commas):
-```
-en, ena
-conf t, config term
-```
-
+---
 ## Important ``show`` commands:
 Note that these commands are executed on privileged EXEC mode (``R1#`` prompt).  
 You can execute them from global configuration mode (``R1(config)#`` prompt) by adding the ``do`` keyword before the command.  
