@@ -16,11 +16,11 @@
 - [DHCPv4](#DHCPv4)
 - [DHCPv6](#DHCPv6)
 - [Previous exam version content](#legacy-section-CCNA-version-6-200-125-exam)
-    - [Configuring VLANs](#configuring-vlans)
-    - [Configuring VLANs](#configuring-vlans)
-        - [Configuring VLANs](#configuring-vlans)
-        - [Configuring VLANs](#configuring-vlans)
-        - [Configuring VLANs](#configuring-vlans)
+    - [RIP](#dynamic-routing-rip)
+    - [EIGRP](#dynamic-routing-eigrp)
+        - [Configuration](#configuration)
+        - [Verification](#verification)
+        - [Fine tuning](#fine-tuning)
 
 ---
 ## Before we start: Configuration modes
