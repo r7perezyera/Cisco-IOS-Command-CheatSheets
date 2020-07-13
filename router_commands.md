@@ -158,7 +158,7 @@ Command|Description
 
 
 ---
-## Legacy section (CCNA version 6, 200-125 exam)
+# Legacy section (CCNA version 6, 200-125 exam)
 :warning: **Attention:** the following topics are no longer on the **current** version (7) of the 200-301 CCNA exam.
 
 ## Dynamic routing: RIP
