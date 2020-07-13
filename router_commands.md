@@ -15,6 +15,7 @@
 - [Access Control Lists (ACL)](#access-control-lists-(acl))
 - [DHCPv4](#DHCPv4)
 - [DHCPv6](#DHCPv6)
+- [NAT](#NAT)
 - [Previous exam version content](#legacy-section-CCNA-version-6-200-125-exam)
     - [RIP](#dynamic-routing-rip)
     - [EIGRP](#dynamic-routing-eigrp)
@@ -134,6 +135,7 @@ Command|Description
 ---|---
 ``R1(config)#ip nat inside source static [local-add] [global-add]``|configure static nat, specifying the local address that will be mapped to a global address
 
+### Inside and outside interfaces
 :bulb: Recall: After this, **always remember** to specify the **inside** and **outside** interfaces.  
 >Though it might be easy for us to identify them with our topology diagram, it's not that easy for the router.
 
@@ -143,6 +145,17 @@ Command|Description
 ``R1(config-if)#ip nat inside``|
 ``R1(config)#interface [int-id]``|ID of the _outside_ interface
 ``R1(config-if)#ip nat outside``|
+
+
+### Configuring Dynamic NAT
+Command|Description
+---|---
+``R1(config)#ip nat pool [pool-name] [start-address] [end-address] {netmask [mask] \| prefix-length [prefix-length]}``|create the pool of routable addresses that hosts will use to exit the private network
+``access-list [number] {permit \| deny} [source] [wildcard mask]``|create an access list to blah blah
+``ip nat inside source list [acl-number] pool [pool name]``|we now bind the pool to the ACL
+
+:bulb: Lastly, **DO NOT forget to [specify the inside and outside interfaces](#inside-and-outside-interfaces)**
+
 
 ---
 ## Legacy section (CCNA version 6, 200-125 exam)
