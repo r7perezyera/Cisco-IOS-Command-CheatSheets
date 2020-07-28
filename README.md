@@ -49,7 +49,7 @@ __Roberto Téllez Perezyera__ - Computer science and software engineering studen
 ## Motivation
 
 While the initial aim of this repository was
-- To gather all the commands found throughout the CCNA2 course in one place
+- To gather all the commands found throughout the CCNA2 v6 course in one place
 - To help myself to master the commands, and learn more deeply about them and Cisco IOS in order to provide up-to-date and clear information in this space
 
-I'm now convinced the project can grow further with constant work and research, and go beyond the scope of only the CCNA2 course in terms of the commands gathered.
+I'm now convinced the project can grow further with constant work and research, and go beyond the scope of only the CCNA2 v6 course in terms of the commands gathered.
