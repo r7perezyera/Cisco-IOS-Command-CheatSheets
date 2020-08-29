@@ -16,6 +16,7 @@
 - [DHCPv4](#DHCPv4)
 - [DHCPv6](#DHCPv6)
 - [NAT](#NAT)
+- [Common administrative distance values](#appendix-common-administrative-distance-ad-values)
 - [Previous exam version content](#legacy-section-CCNA-version-6-200-125-exam)
     - [RIP](#dynamic-routing-rip)
     - [EIGRP](#dynamic-routing-eigrp)
@@ -130,7 +131,7 @@ Command|Description
 ``R1#``|descr
 
 :bulb: Recall: OSPF's default AD is ``110``  
-You can find common AD values [here](https://github.com/r7perezyera/Cisco-IOS-Command-CheatSheets/).
+You can find common AD values [here](#appendix-common-administrative-distance-ad-values).
 
 ---
 ## Configuring Router-on-a-stick inter-VLAN routing
@@ -201,6 +202,17 @@ Command|Description
 
 :bulb: Lastly, **DO NOT forget to [specify the inside and outside interfaces](#inside-and-outside-interfaces)**
 
+
+
+---
+# Appendix: Common administrative distance (AD) values:
+code|type|AD value
+---|---|---
+``C``|Directly connected network|``0``
+``S``|Static route|``1``
+``D``|EIGRP|``90``
+``O``|OSPF|``110``
+``R``|RIP|``120``
 
 ---
 # Legacy section (CCNA version 6, 200-125 exam)
