@@ -124,11 +124,12 @@ Command|Description
 ---|---
 ``R1#show ip protocols``|your go-to command to quickly verify key OSPF configuration information on a router, including PID, router ID, advertised networks, neighbors and administrative distance.
 ``R1#show ip route``|adfa. Additionally, issue ``shw ip route ospf`` to see only the OSPF-learned networks (entries) on the routing table.
-``R1#show ip ospf neighbor``|descr
-``R1#``|descr
-``R1#``|descr
-``R1#``|descr
-``R1#``|descr
+``R1#show ip ospf neighbor``|list of this router's OSPF _neighbor_ routers
+``R1#show ip ospf``|useful to identify the PID, router ID, area information, and when the SPF algorithm was run for the last time
+``R1#show ip ospf interface brief``|summary of router's OSPF-enabled interfaces. :warning: This command does NOT seem to work on Packet Tracer 7.3
+``R1#show ip ospf interface``|in-detail list of every OSPF-enabled interface
+``R1#show ip ospf interface [int-id]``|in-detail information for a particular OSPF-enabled interface
+
 
 :bulb: Recall: OSPF's default AD is ``110``  
 You can find common AD values [here](#appendix-common-administrative-distance-ad-values).
@@ -206,6 +207,9 @@ Command|Description
 
 ---
 # Appendix: Common administrative distance (AD) values:
+
+Default values:
+
 code|type|AD value
 ---|---|---
 ``C``|Directly connected network|``0``
@@ -213,6 +217,9 @@ code|type|AD value
 ``D``|EIGRP|``90``
 ``O``|OSPF|``110``
 ``R``|RIP|``120``
+
+[Back to the table of contents](#table-of-contents)  
+[Back to OSPF verification](#ospf-verification)
 
 ---
 # Legacy section (CCNA version 6, 200-125 exam)
