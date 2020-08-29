@@ -112,7 +112,7 @@ Command|Description
 Issue the ``R1(config)#do show ip route con`` command.  
 It will display the routing table ONLY with the directly connected networks (routes).
 
->:trophy: **Best practice:** OSPF routers **within an area** use **and need** unique IDs to identify themselves. It is highly convenient to manually set a desired router ID with the ``router-id`` command.
+>:trophy: **Best practice:** OSPF routers **within an area** use **and need unique IDs** to identify themselves. It is highly convenient to manually set a desired router ID with the ``router-id`` command.
 
 
 ### OSPF verification
@@ -121,7 +121,16 @@ The following are useful commands to verify and troubleshoot your OSPF configura
 
 Command|Description
 ---|---
-``R1(config)#``|descr
+``R1#show ip protocols``|your go-to command to quickly verify key OSPF configuration information on a router, including PID, router ID, advertised networks, neighbors and administrative distance.
+``R1#show ip route``|adfa. Additionally, issue ``shw ip route ospf`` to see only the OSPF-learned networks (entries) on the routing table.
+``R1#show ip ospf neighbor``|descr
+``R1#``|descr
+``R1#``|descr
+``R1#``|descr
+``R1#``|descr
+
+:bulb: Recall: OSPF's default AD is ``110``  
+You can find common AD values [here](https://github.com/r7perezyera/Cisco-IOS-Command-CheatSheets/).
 
 ---
 ## Configuring Router-on-a-stick inter-VLAN routing
