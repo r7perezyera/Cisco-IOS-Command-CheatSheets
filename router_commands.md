@@ -82,10 +82,46 @@ Here's an example of the usage of filtering with a ``show`` command:
 ---
 ## Static routing
 
-### Types of static routes and their configuration
+With an administrative distance (AD) of ``1``. These are, just after the **directly connected routes** the most trustworthy routes a router can have on its routing table.
+
+Static routes are all configures in **global configuration mode**, with the ``ip route`` command, i.e.,
+>``R1(config)#ip route ...``
+
+We'll cover the whole command right away.
+
+### There are essentially four types of static routes, with particular purposes.
+
+### Standard Static Route
+### Default Static Route
+### Summary Static Route
+### Floating Static Route
 
 ---
 ## Dynamic routing: OSPF
+
+### OSPF configuration
+Command|Description
+---|---
+``R1(config)#router ospf [PID]``|create OSPF process with Process ID [PID] (1 - 65535)
+``R1(config-router)#router-id [a.b.c.d]``|manually assign the router an ID, in an IPv4 format.
+``R1(config-router)#network [segment IP] [wildcard mask] area [area id]``|for all directly connected networks, announce each network following this nomenclature. Area ID can go from 0 to 4294967295
+
+:bulb: The ``area id`` can also be expressed in IP address format, hence the range of available ``area id``s.
+
+:bulb: ProTip: How can I easily visualize all the directly connected networks a router has?  
+Issue the ``R1(config)#do show ip route con`` command.  
+It will display the routing table ONLY with the directly connected networks (routes).
+
+>:trophy: **Best practice:** OSPF routers **within an area** use **and need** unique IDs to identify themselves. It is highly convenient to manually set a desired router ID with the ``router-id`` command.
+
+
+### OSPF verification
+
+The following are useful commands to verify and troubleshoot your OSPF configurations.
+
+Command|Description
+---|---
+``R1(config)#``|descr
 
 ---
 ## Configuring Router-on-a-stick inter-VLAN routing
