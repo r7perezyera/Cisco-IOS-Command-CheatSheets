@@ -23,6 +23,7 @@
         - [Configuration](#configuration)
         - [Verification](#verification)
         - [Fine tuning](#fine-tuning)
+    - [EIGRP for IPv6](#dynamic-routing-eigrp-for-ipv6)
 
 ---
 ## Before we start: Configuration modes
@@ -104,8 +105,8 @@ We'll cover the whole command right away.
 Command|Description
 ---|---
 ``R1(config)#router ospf [PID]``|create OSPF process with Process ID [PID] (1 - 65535)
-``R1(config-router)#router-id [a.b.c.d]``|manually assign the router an ID, in an IPv4 format.
-``R1(config-router)#network [segment IP] [wildcard mask] area [area id]``|for all directly connected networks, announce each network following this nomenclature. Area ID can go from 0 to 4294967295
+``R1(config-router)#router-id [a.b.c.d]``|manually assign the router an ID, in an IPv4 address format.
+``R1(config-router)#network [network-address] [wildcard-mask] area [area id]``|for all directly connected networks, announce each network following this nomenclature. Area ID can go from 0 to 4294967295
 
 :bulb: The ``area id`` can also be expressed in IP address format, hence the range of available ``area id``s.
 
@@ -230,7 +231,37 @@ code|type|AD value
 ## Dynamic routing: EIGRP
 
 ### Configuration
+Command|Description
+---|---
+``R1(config)#router eigrp [AS-number]``|[AS-number] value range: (1 - 65535)
+``R1(config-router)#eigrp router-id [a.b.c.d]``|(optional) manually configure a **router ID**, in an IPv4 address format
+``R1(config-router)#network [network-address]``|add the classful network address for each directly connected network
+``R1(config-router)#network [network-address] [wildcard-mask]``|add the network address with the wildcard mask, recommended when using classless addresing
+``R1(config-router)#``|descr
+
+:bulb: If no EIGRP router ID is configured, the router will use the highest IPv4 address of any active loopback interface. If the router has NO active loopback interfaces, the router ID will be the highest IPv4 address of any active physical interface.
+
+:bulb: ProTip: How can I easily visualize all the directly connected networks a router has?  
+Issue the ``R1(config)#do show ip route con`` command.  
+It will display the routing table ONLY with the directly connected networks (routes).
+
+:bulb: Recall: by default, EIGRP does NOT automatically summarize networks.
 
 ### Verification
+Command|Description
+---|---
+``R1(config-router)#``|descr
+``R1(config-router)#``|descr
+``R1(config-router)#``|descr
+``R1(config-router)#``|descr
 
 ### Fine tuning
+Command|Description
+---|---
+``R1(config-router)#``|descr
+``R1(config-router)#``|descr
+``R1(config-router)#``|descr
+``R1(config-router)#``|descr
+
+
+## Dynamic routing: EIGRP for IPv6
