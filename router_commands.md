@@ -215,7 +215,7 @@ code|type|AD value
 ---|---|---
 ``C``|Directly connected network|``0``
 ``S``|Static route|``1``
-``D``|EIGRP|``90``
+``D``|Internal EIGRP|``90``
 ``O``|OSPF|``110``
 ``R``|RIP|``120``
 
