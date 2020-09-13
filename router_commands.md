@@ -220,7 +220,8 @@ code|type|AD value
 ``R``|RIP|``120``
 
 [Back to the table of contents](#table-of-contents)  
-[Back to OSPF verification](#ospf-verification)
+[Back to OSPF verification](#ospf-verification)  
+[Back to EIGRP verification](#eigrp-verification)
 
 ---
 # Legacy section (CCNA version 6, 200-125 exam)
@@ -230,14 +231,14 @@ code|type|AD value
 
 ## Dynamic routing: EIGRP
 
-### Configuration
+### EIGRP Configuration
 Command|Description
 ---|---
-``R1(config)#router eigrp [AS-number]``|[AS-number] value range: (1 - 65535)
+``R1(config)#router eigrp [AS-number]``|[AS-number] value range: 1-65535.
 ``R1(config-router)#eigrp router-id [a.b.c.d]``|(optional) manually configure a **router ID**, in an IPv4 address format
 ``R1(config-router)#network [network-address]``|add the classful network address for each directly connected network
-``R1(config-router)#network [network-address] [wildcard-mask]``|add the network address with the wildcard mask, recommended when using classless addresing
-``R1(config-router)#``|descr
+``R1(config-router)#network [network-address] ([wildcard-mask])``|add the network address with the wildcard mask, recommended when using classless addresing
+
 
 :bulb: If no EIGRP router ID is configured, the router will use the highest IPv4 address of any active loopback interface. If the router has NO active loopback interfaces, the router ID will be the highest IPv4 address of any active physical interface.
 
@@ -247,21 +248,53 @@ It will display the routing table ONLY with the directly connected networks (rou
 
 :bulb: Recall: by default, EIGRP does NOT automatically summarize networks.
 
-### Verification
+### EIGRP Verification
 Command|Description
 ---|---
-``R1(config-router)#``|descr
-``R1(config-router)#``|descr
-``R1(config-router)#``|descr
-``R1(config-router)#``|descr
+``R1#show ip protocols``|verifies the current configured values for EIGRP (and any additional enabled routing protocol on the device)
+``R1#show ip eigrp neighbors``|displays the nighbor table. Use it to verify the router recognizes its neighbors.
+``R1#show ip route eigrp``|display **only EIGRP** entries in the routing table
+``R1#show ip eigrp interface``|verifies which interface are enabled for EIGRP, number of peers, and transmit queues
 
-### Fine tuning
+:bulb: Recall: (internal) EIGRP's default AD is ``90``  
+You can find common AD values [here](#appendix-common-administrative-distance-ad-values).
+- _The AD for an **EIGRP summary route** is 5._
+- _The AD for an **EIGRP external route** is 170._
+
+### EIGRP Fine tuning
 Command|Description
 ---|---
-``R1(config-router)#``|descr
-``R1(config-router)#``|descr
-``R1(config-router)#``|descr
-``R1(config-router)#``|descr
+``R1(config-router)#variance [variance]``|change variance to perform **unequal cost load balancing**. [variance] value range: 1-128.
+``R1(config-router)#auto-summary``|enable **automatic summarization**
+``R1(config-router)#redistribute static``|propagate a **default static route**. Works on both IPv4 and IPv6. :bulb: remember to check routing tables to ensure correct/desired configuration
+``R1(config-if)#bandwidth [BW in kilobits]``|modify the EIGRP metric. :warning: this is done in **interface configuration mode**
+``R1(config-if)#ip hello-interval eigrp [AS-number] [time in seconds]``|modify hello interval on IPv4. :warning: this is done in **interface configuration mode**
+``R1(config-if)#ipv6 hello-interval eigrp [AS-number] [time in seconds]``|modify hello interval on IPv6. :warning: this is done in **interface configuration mode**
+``R1(config-if)#ip hold-time eigrp [AS-number] [time in seconds]``|modify hold timer length on IPv4 :warning: this is done in **interface configuration mode**
+``R1(config-if)#ipv6 hold-time eigrp [AS-number] [time in seconds]``|modify hold timer length on IPv6 :warning: this is done in **interface configuration mode**
+
+:bulb: Recall: **automatic summarization** is **disabled** by default
+
+:warning: When modifying EIGRP hello intervals and hold timers, ALWAYS MAKE SURE your Hello intervals are LESS THAN your hold timers. Otherwise, you could have a _flapping link_ (due to timer misconfiguration, constantly goes up, down, up, ...)
 
 
 ## Dynamic routing: EIGRP for IPv6
+
+### Configuration
+Command|Description
+---|---
+``R1(config)#ipv6 unicast-routing``|descr
+``R1(config-rtr)#ipv6 router eigrp [AS-number]``|descr
+``R1(config-rtr)#eigrp router-id [a.b.c.d]``|:bulb: The EIGRP for IPv6 process will start tunning **after** you enter the router ID
+``R1(config-rtr)#no shutdown``|:bulb: This is a best practice, since EIGRP for IPv6 has a **shutdown feature**
+``R1(config-rtr)#interface [int-id]``|now, enable EIGRP for IPv6 on **each desired interface**
+
+### Verification
+The same process for verification or troubleshooting for IPv4 can be used on IPv6 implementations. Replace ``ip`` for ``ipv6`` in your commands
+
+Command|Description
+---|---
+``R1#show ipv6 protocols``|verifies the current configured values for EIGRP (and any additional enabled routing protocol on the device)
+``R1#show ipv6 eigrp neighbors``|displays the nighbor table. Use it to verify the router recognizes its neighbors.
+``R1#show ipv6 route eigrp``|display **only EIGRP** entries in the routing table
+``R1#show ipv6 eigrp interface``|verifies which interface are enabled for EIGRP, number of peers, and transmit queues
