@@ -288,6 +288,7 @@ Command|Description
 ``R1(config-rtr)#eigrp router-id [a.b.c.d]``|:bulb: The EIGRP for IPv6 process will start tunning **after** you enter the router ID
 ``R1(config-rtr)#no shutdown``|:bulb: This is a best practice, since EIGRP for IPv6 has a **shutdown feature**
 ``R1(config-rtr)#interface [int-id]``|now, enable EIGRP for IPv6 on **each desired interface**
+``R1(config-if)#ipv6 eigrp [AS-number]``|use this command with the AS-number you used when configuring EIGRP for IPv6 on **each desired interface**
 
 :bulb: Note that the configuration mode prompt when configuring EIGRP for IPv6 is different. While EIGRP for IPv4 is configured under the configuration mode with prompt ``R1(config-router)#``, EIGRP for IPv6 is configured under the mode/prompt ``R1(config-rtr)#``
 
