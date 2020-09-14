@@ -283,11 +283,13 @@ Command|Description
 ### Configuration
 Command|Description
 ---|---
-``R1(config)#ipv6 unicast-routing``|descr
-``R1(config-rtr)#ipv6 router eigrp [AS-number]``|descr
+``R1(config)#ipv6 unicast-routing``|this **global configuration command** enables the router to forward IPv6 packets
+``R1(config-rtr)#ipv6 router eigrp [AS-number]``|enter router configuration mode for EIGRP for IPv6, specifying the AS number
 ``R1(config-rtr)#eigrp router-id [a.b.c.d]``|:bulb: The EIGRP for IPv6 process will start tunning **after** you enter the router ID
 ``R1(config-rtr)#no shutdown``|:bulb: This is a best practice, since EIGRP for IPv6 has a **shutdown feature**
 ``R1(config-rtr)#interface [int-id]``|now, enable EIGRP for IPv6 on **each desired interface**
+
+:bulb: Note that the configuration mode prompt when configuring EIGRP for IPv6 is different. While EIGRP for IPv4 is configured under the configuration mode with prompt ``R1(config-router)#``, EIGRP for IPv6 is configured under the mode/prompt ``R1(config-rtr)#``
 
 ### Verification
 The same process for verification or troubleshooting for IPv4 can be used on IPv6 implementations. Replace ``ip`` for ``ipv6`` in your commands
