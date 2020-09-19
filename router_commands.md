@@ -12,7 +12,7 @@
 - [**Static routing**](#static-routing)
 - [**Dynamic routing: OSPF**](#dynamic-routing-ospf)
 - [Routing between VLANS: ROAS](#configuring-Router-on-a-stick-inter-VLAN-routing)
-- [Access Control Lists (ACL)](#access-control-lists-(acl))
+- [Access Control Lists (ACL)](#access-control-lists-acl)
 - [DHCPv4](#DHCPv4)
 - [DHCPv6](#DHCPv6)
 - [NAT](#NAT)
