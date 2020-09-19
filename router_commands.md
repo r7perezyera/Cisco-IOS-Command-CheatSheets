@@ -157,6 +157,12 @@ Command|Description
 > :construction: Disclaimer: Do keep in mind that work is currently in progress on this section.  
 Additional commands coming soon... :construction:
 
+:bulb: ProTip: **_Standard or extended?_** Standard ACLs are generally -if not always- placed closest to the destination. Extended ACLs are placed closest to the source. Think you might have trouble remembering that? Try this:
+> Standard closest to Destination, i.e., **S - D**  
+Extended closest to Source, i.e., **E - S**  
+Notice (and remember) there is **_only one S_** on each the previous letter pairs.
+
+
 ### Procedure for configuring Standard ACLs
 
 Command|Description
