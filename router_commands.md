@@ -12,7 +12,7 @@
 - [**Static routing**](#static-routing)
 - [**Dynamic routing: OSPF**](#dynamic-routing-ospf)
 - [Routing between VLANS: ROAS](#configuring-Router-on-a-stick-inter-VLAN-routing)
-- [Access Control Lists (ACL)](#access-control-lists-acl)
+- [Access Control Lists (ACL)](#no_pedestrians-access-control-lists-acl)
 - [DHCPv4](#DHCPv4)
 - [DHCPv6](#DHCPv6)
 - [NAT](#NAT)
@@ -153,23 +153,33 @@ Command|Description
 ``R1(config-if)#no shutdown``|enable the physical interface. This enables **all** configured subinterfaces **on that interface**
 
 ---
-## Access Control Lists (ACL)
+## :no_pedestrians: Access Control Lists (ACL)
 > :construction: Disclaimer: Do keep in mind that work is currently in progress on this section.  
 Additional commands coming soon... :construction:
 
-:bulb: ProTip: **_Standard or extended?_** Standard ACLs are generally -if not always- placed closest to the destination. Extended ACLs are placed closest to the source. Think you might have trouble remembering that? Try this:
-> Standard closest to Destination, i.e., **S - D**  
-Extended closest to Source, i.e., **E - S**  
+:bulb: ProTip: **_Standard or extended?_** - Standard ACLs are generally -if not always- placed closest to the destination. Extended ACLs are placed closest to the source. Think you might have trouble remembering that? Try this:
+> _"Standard closest to Destination"_, i.e., **S - D**  
+_"Extended closest to Source"_, i.e., **E - S**  
 Notice (and remember) there is **_only one S_** on each the previous letter pairs.
 
+:bulb: Recall: **_How many ACLs can I have on the router?_** - One per interface, per protocol (IPv4, IPv6), per direction (in, out)
 
-### Procedure for configuring Standard ACLs
+### Procedure for configuring Standard Numbered ACLs
 
 Command|Description
 ---|---
-``R1(config)#access-list [number] (permit/deny) [address] [wildcard mask]``|create entry in standard IPv4 ACL
+``R1(config)#access-list [number] [permit/deny] [address] [wildcard mask]``|create entry in standard IPv4 ACL with specified number
 ``R1(config)#interface [int-id]``|select the interface to which the ACL will be applied
-``R1(config-if)#ip access-group [number] (in/out)``|activate the ACL on the selected interface
+``R1(config-if)#ip access-group [number] [in/out]``|activate the ACL on the selected interface
+``R1(config)#no access-list [number]``|:warning: This **ERASES** the ACL, i.e., **EVERY ACE that makes it up**
+
+
+### Procedure for configuring Standard Named ACLs
+
+Command|Description
+---|---
+``R1(config)#access-list [number] [permit/deny] [address] [wildcard mask]``|create entry in standard IPv4 ACL with specified number
+
 
 ---
 ## DHCPv4
