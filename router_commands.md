@@ -171,14 +171,17 @@ Command|Description
 ``R1(config)#access-list [number] [permit/deny] [address] [wildcard mask]``|create entry in standard IPv4 ACL with specified number
 ``R1(config)#interface [int-id]``|select the interface to which the ACL will be applied
 ``R1(config-if)#ip access-group [number] [in/out]``|activate the ACL on the selected interface
-``R1(config)#no access-list [number]``|:warning: This **ERASES** the ACL, i.e., **EVERY ACE that makes it up**
+``R1(config)#no access-list [number]``|:warning: This **ERASES** the ACL, i.e., **EVERY ACE** (Access Control entry) **that makes it up**
+
+>:trophy: :warning: **Best practice / IMPORTANT:** It is HIGHLY recommended to always have EACH of your ACLs **backed-up.**
 
 
 ### Procedure for configuring Standard Named ACLs
 
 Command|Description
 ---|---
-``R1(config)#access-list [number] [permit/deny] [address] [wildcard mask]``|create entry in standard IPv4 ACL with specified number
+``R1(config)#ip access-list [standard] [name]``|creates a standard named ACL. Will take you to standard (``std``) named ACL (``nacl``) configuration mode after entering it
+``R1(config-std-nacl)#``|
 
 
 ---
