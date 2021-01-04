@@ -84,19 +84,27 @@ Here's an example of the usage of filtering with a ``show`` command:
 ---
 ## Static routing
 
-With an administrative distance (AD) of ``1``. These are, just after the **directly connected routes** the most trustworthy routes a router can have on its routing table.
+With an administrative distance (AD) of ``1``. These are, just after the **directly connected routes**, the most trustworthy routes a router can have on its routing table.
 
-Static routes are all configures in **global configuration mode**, with the ``ip route`` command, i.e.,
->``R1(config)#ip route ...``
+Static routes are all configured in **global configuration mode**, with the ``ip route`` command, i.e.,
+>``R1(config)#ip route [network-address] [subnet-mask] ....``
 
-We'll cover the whole command right away.
 
 ### There are essentially four types of static routes, with particular purposes.
 
 ### Standard Static Route
+>``R1(config)#ip route [network-address] [subnet-mask] ([next-hop-ip] [exit-int])``
+
 ### Default Static Route
-### Summary Static Route
+>``R1(config)#ip route 0.0.0.0 0.0.0.0 ([next-hop-ip] [exit-int])``
+
 ### Floating Static Route
+>``R1(config)#ip route [network-address] [subnet-mask] ([next-hop-ip] [exit-int]) [AD]``
+
+### Summary Static Route
+>``R1(config)#ip route [network-address] [subnet-mask*] ([next-hop-ip] [exit-int])``  
+``*`` Using the appropriate subnet mask that summarizes the otherwise separate routes into a **single**, static route.
+
 
 ---
 ## Dynamic routing: OSPF
@@ -154,15 +162,13 @@ Command|Description
 
 ---
 ## :no_pedestrians: Access Control Lists (ACL)
-> :construction: Disclaimer: Do keep in mind that work is currently in progress on this section.  
-Additional commands coming soon... :construction:
 
 :bulb: ProTip: **_Standard or extended?_** - Standard ACLs are generally -if not always- placed closest to the destination. Extended ACLs are placed closest to the source. Think you might have trouble remembering that? Try this:
 > _"Standard closest to Destination"_, i.e., **S - D**  
 _"Extended closest to Source"_, i.e., **E - S**  
 Notice (and remember) there is **_only one S_** on each the previous letter pairs.
 
-:bulb: Recall: **_How many ACLs can I have on the router?_** - One per interface, per protocol (IPv4, IPv6), per direction (in, out)
+:bulb: Recall: **_How many ACLs can I have on the router?_** - One per interface, per protocol (IPv4, IPv6), per direction (inbound, outbound)
 
 ### Procedure for configuring Standard Numbered ACLs
 
