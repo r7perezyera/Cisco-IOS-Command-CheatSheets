@@ -1,9 +1,7 @@
-# :construction: Work in progress! :construction:
 
 # CCNA Router command cheat-sheet
 #### Useful router commands for CCNA2 v6 (Routing and Switching Essentials) Cisco Networking Academy course.
----
-### :warning: Please note that CCNA v6 is outdated! As of February 24 2020 the new exam version (200-301) and Netacad course material are available.  However, I'm doing my best to keep these cheat-sheets updated with the same content you can find in the new Netacad course versions.
+
 ---
 ## Table of contents
 
@@ -194,6 +192,32 @@ Command|Description
 ## DHCPv4
 
 ### Configure a Cisco router as a DHCPv4 server
+
+Command|Description
+---|---
+``R1(config)#ip dhcp excludded-address [start-address (end-address)]``|exclude a single or a range of IPv4 addresses, i.e., these addresses will not be available for DHCP assignment to hosts
+``R1(config)#ip dhcp pool [pool name]``|create and name the pool of available addresses to assign. Takes you to **DHCP config mode**.
+``R1(dhcp-config)#network [network-id] [mask]``|specify the network address with either the subnet mask OR the prefix length
+``R1(dhcp-config)#default-router [address]``|specify the IPv4 address of the default gateway (router) the hosts will use
+
+That's all a simple DHCP server configuration is comprised of.
+Some additional configuration can be made with help of the follwing commands:
+
+Command|Description
+---|---
+``R1(dhcp-config)#lease [days] ([hours] [minutes])``|specify the time of the lease of every address
+``R1(dhcp-config)#dns-server [dns-address-1] ([dns-address-2 ... dns-address-8])``|specify up to 8 DNS server addresses
+``R1(dhcp-config)#domain-name [name]``|specify the domain name
+
+### The ip helper address:
+
+If your DHCP server is on a **separate network segment**, you will have to (and can) relay external DHCPv4 requests.  
+You will have to enter the following command on every interface of the router that needs to reach the DHCP server's segment.
+
+Command|Description
+---|---
+``R1(config-if)#ip helper address [DHCP-server-address]``|indicates the router to relay (instead of discarding) DHCP messages to the DHCP server's address.
+
 
 ---
 ## DHCPv6
