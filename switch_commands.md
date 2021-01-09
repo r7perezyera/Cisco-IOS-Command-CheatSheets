@@ -1,10 +1,7 @@
-# :construction: Work in progress! :construction:
 
 # CCNA Switch command cheat-sheet
 #### Useful command collection for Cisco Switches. Based on Cisco Networking Academy CCNA version 6 and version 7 course material, and recommended for CCNA exam preparation.
 
----
-### :warning: Please note that CCNA v6 is outdated! As of February 24 2020 the new exam version (200-301) and Netacad course material are available.  I'm doing my best to keep the cheat-sheets updated with content any network professional working with Cisco switches may find useful. Although the contents are currently based mainly on Netacad version 6 and 7 courses for the CCNA exam.
 ---
 ## Table of contents
 
@@ -21,10 +18,11 @@
     - [Voice VLANs](#voice-vlans)
 - [Configuring SSH](#configuring-ssh)
 - [Modifying SSH configuration](#modifying-ssh-configuration)
-- [Configuring Dynamic Port Security](#closed_lock_with_key-configuring-dynamic-port-security)
-- [Configuring Sticky Port Security](#closed_lock_with_key-configuring-sticky-port-security)
-- [Verifying Port Security & secure MAC addresses](#closed_lock_with_key-white_check_mark-verifying-port-security-&-secure-mac-addresses)
-- [``Err-disabled`` interfaces](#bringing-an-err-disabled-interface-back-up)
+- [Port Security](#port-security)
+    - [Configuring Dynamic Port Security](#closed_lock_with_key-configuring-dynamic-port-security)
+    - [Configuring Sticky Port Security](#closed_lock_with_key-configuring-sticky-port-security)
+    - [Verifying Port Security & secure MAC addresses](#closed_lock_with_key-white_check_mark-verifying-port-security-&-secure-mac-addresses)
+        - [``Err-disabled`` interfaces](#bringing-an-err-disabled-interface-back-up)
 - [VLAN management with VTP](#VLAN-trunking-protocol-VTP)
     - [VTP verification](#VTP-verification)
 - [STP](#Spanning-Tree-Protocol)
@@ -213,8 +211,8 @@ Command|Description
 
 Verify your newly configured settings with ``S1#show ip ssh``
 
-
-## :closed_lock_with_key: Configuring Dynamic Port Security
+## Port Security
+### :closed_lock_with_key: Configuring Dynamic Port Security
 Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|
@@ -224,7 +222,7 @@ Command|Description
 
 >:trophy: **Best practice:** It is a best security and general practice to "hard-type" the ``switchport mode access`` command. This also applies to Trunk ports (``switchport mode trunk``).
 
-## :closed_lock_with_key: Configuring Sticky Port Security
+### :closed_lock_with_key: Configuring Sticky Port Security
 Command|Description
 ---|---
 ``S1(config)#interface [int-id]``|
@@ -234,7 +232,7 @@ Command|Description
 ``S1(config-if)#switchport port-security mac-address sticky``|Enable sticky learning
 ``S1(config-if)#switchport port-security violation [violation-mode]``|set violation mode (``protect``, ``restrict``, ``shutdown``)
 
-## :closed_lock_with_key: :white_check_mark: Verifying Port Security & secure MAC addresses
+### :closed_lock_with_key: :white_check_mark: Verifying Port Security & secure MAC addresses
 Now that we have configured Port Security, the following commands will be handy to verify and troubleshoot.
 
 Command|Description
@@ -243,7 +241,7 @@ Command|Description
 ``S1#show port-security address``|displays secure MAC addresses configured on **all switch interfaces**
 ``S1#show interface [int-id] status``|displays port status. Useful to verify if an interface is in ``err-disabled`` status.
 
-## Bringing an ``err-disabled`` interface back up
+### Bringing an ``err-disabled`` interface back up
 
 :bulb: Recall: After a violation, a port in **Shutdown violation mode** changes its status to *error disabled*, and is effectively **shut down**. To resume operation (sending and receiving traffic), we must bring it back up. Here's how:
 
