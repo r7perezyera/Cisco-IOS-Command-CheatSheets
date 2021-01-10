@@ -316,6 +316,7 @@ Command|Description
 ``R1(config)#router rip``|enter router configuration mode, with RIP as the routing protocol
 ``R1(config-router)#network [network-id]``|specify the network segment address. Note that this is done without the **subnet mask**.
 ``R1(config-router)#passive-interface [int-id]``|(optional) - prevent an interface from sending RIP updates
+
 :bulb: For safety reasons, interfaces that do NOT need to send RIP updates (e.g., interfaces facing network segments with hosts instead of other routers) should be configured as passive. It's also a good practice as RIP updates on these segments would be nothing but wasted bandwidth.
 
 :bulb: As you see, NO subnet mask information is configured. When forwarding updates, the router uses either the mask configured on the local interface or the default mask based on the address class (A, B, or C).
