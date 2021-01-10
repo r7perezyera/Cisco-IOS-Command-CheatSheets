@@ -271,12 +271,75 @@ code|type|AD value
 [Back to the table of contents](#table-of-contents)  
 [Back to OSPF verification](#ospf-verification)  
 [Back to EIGRP verification](#eigrp-verification)
+[Back to RIP](#dynamic-routing-rip)
+
+
+# Appendix: IPv4 address classes
+There are five class groups in which IPv4 addresses are segmented: A, B, C, D, and E.  
+:bulb: Classes D and E are reserved groups.  
+- Class D addresses are **multicast groups**
+- Class E addresses are reserver for research purposes
+
+Class|Range (**first octet**)
+---|---
+A|``1 - 127``
+B|``128 - 191``
+C|``192 - 223``
+D|``224 - 239``
+E|``240 - 255``
+
+
+# Appendix: Private IPv4 address ranges
+
+The following private IPv4 address spaces are defined in RFC 1918 ("Address Allocation for Private Internets").  
+These addresses are used within private networks and are thus NOT routable to the **public Internet**.  
+To forward traffic from a private to a public network, you'd use Network Address Translation (NAT), defined in RFC 3022.
+NAT configuration on Cisco routers is covered [here](#nat).
+
+Class|Range (CIDR notation)|Range (start - end)
+---|---|---
+A|``10.0.0.0/8``|``10.0.0.0 - 10.0.0.255``
+B|``172.16.0.0/12``|``172.16.0.0 - 172.31.255.255``
+C|``192.168.0.0/16``|``192.168.0.0 - 192.168.255.255``
 
 ---
 # Legacy section (CCNA version 6, 200-125 exam)
 :warning: **Attention:** the following topics are no longer on the **current** version (7) of the 200-301 CCNA exam.
 
 ## Dynamic routing: RIP
+### RIPv1 configuration
+
+Command|Description
+---|---
+``R1(config)#router rip``|enter router configuration mode, with RIP as the routing protocol
+``R1(config-router)#network [network-id]``|specify the network segment address. Note that this is done without the **subnet mask**.
+``R1(config-router)#passive-interface [int-id]``|(optional) - prevent an interface from sending RIP updates
+:bulb: For safety reasons, interfaces that do NOT need to send RIP updates (e.g., interfaces facing network segments with hosts instead of other routers) should be configured as passive. It's also a good practice as RIP updates on these segments would be nothing but wasted bandwidth.
+
+:bulb: As you see, NO subnet mask information is configured. When forwarding updates, the router uses either the mask configured on the local interface or the default mask based on the address class (A, B, or C).
+:bulb: You can find out more about address classes [here](#appendix-ipv4-address-classes)
+:warning: Because of this, your networks on a RIPv1 scheme **MUST BE CONTIGUOUS**, meaning that VLSM or supernetting is not supported by version 1 of RIP
+
+:bulb: Recall: RIP's default AD is ``120``  
+You can find common AD values [here](#appendix-common-administrative-distance-ad-values).
+
+### Additional RIPv1 configuration
+
+Command|Description
+---|---
+``R1(config-router)#default-information originate``|**if a default static route is configured on the router** propagate the default route to other routers receiving RIP updates
+
+
+### RIPv2 configuration
+
+Command|Description
+---|---
+``R1(config)#router rip``|enter router configuration mode, with RIP as the routing protocol
+``R1(config-router)#version 2``|change RIP process version from 1 to 2
+``R1(config-router)#no auto-summary``|disable network auto summarization
+
+:bulb: Recall: by default (without previously configuring version 2), RIP can **receive both** RIPv1 and RIPv2 routing updates.  
+:bulb: You can see this with the ``R1#show ip protocols`` command.
 
 ## Dynamic routing: EIGRP
 
