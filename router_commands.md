@@ -14,6 +14,7 @@
 - [DHCPv4](#DHCPv4)
 - [DHCPv6](#DHCPv6)
 - [NAT](#NAT)  
+- [HSRP](#HSRP)
 - Appendices:
     - [Common administrative distance values](#appendix-common-administrative-distance-ad-values)
     - [IPv4 address classes](#appendix-ipv4-address-classes)
@@ -257,6 +258,30 @@ Command|Description
 ``ip nat inside source list [acl-number] pool [pool name]``|we now bind the pool to the ACL
 
 :bulb: Lastly, **DO NOT forget to [specify the inside and outside interfaces](#inside-and-outside-interfaces)**
+
+
+
+---
+## HSRP
+Command|Description
+---|---
+``R1(config-if)#standby version 2``|(optional) specify HSRP version 2 will be used. Otherwise, your HSRP instance will be running in version 1 by default.
+``R1(config-if)#standby [group] ip [virtual-ip]``|specify the router group and the virtual gateway's IP address
+``R1(config-if)#standby [group] priority [0-255]``|(optional) specify each router a priority for **active router** election
+``R1(config-if)#standby [group] preempt``|(optional) enables **preemption**, i.e., a router with higher priority will take the active role if current active router's priority is lower
+``R1(config-if)#standby [group] timers [hello-timer] [hold-timer]``|specify hello and hold (dead) timers. HSRP automatically ensures that the hold timer value is greater than the hello timer value.
+
+:warning: **ALWAYS use the SAME HSRP version on your topologies**  
+For Cisco routers, having instances of the 2 different HSRP versions running is like having two different HSRP groups. Hence, you will come across a duplicate address error (assuming you configured HSRPv1 and HSRPv2 using the same virtual router address).
+
+### :bulb: HSRPv1 vs HSRPv2: What's different?
+- v2 supports IPv6, v1 does NOT.
+- v2 supports 4095 groups, v1 supports 255.
+- v2 sends multicast HSRP traffic to ``224.0.0.102``, v1 multicasts to``224.0.0.2``
+- the **virtual MAC addresses are also different**
+    - v1: ``0000.0C07.ACxx``
+    - v2: ``0000.0C9F.Fxxx``
+    - :bulb: the ``x`` characters at the end are replaced by the **group number** in HEX.
 
 
 
