@@ -353,7 +353,7 @@ Command|Description
 :bulb: For safety reasons, interfaces that do NOT need to send RIP updates (e.g., interfaces facing network segments with hosts instead of other routers) should be configured as passive. It's also a good practice as RIP updates on these segments would be nothing but wasted bandwidth.
 
 :bulb: As you see, NO subnet mask information is configured. When forwarding updates, the router uses either the mask configured on the local interface or the default mask based on the address class (A, B, or C).
-:bulb: You can find out more about address classes [here](#appendix-ipv4-address-classes)
+:bulb: You can find out more about address classes [here](#appendix-ipv4-address-classes)  
 :warning: Because of this, your networks on a RIPv1 scheme **MUST BE CONTIGUOUS**, meaning that VLSM or supernetting is not supported by version 1 of RIP
 
 :bulb: Recall: RIP's default AD is ``120``  
