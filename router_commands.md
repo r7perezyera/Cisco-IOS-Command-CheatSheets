@@ -17,6 +17,8 @@
 - [Common administrative distance values](#appendix-common-administrative-distance-ad-values)
 - [Previous exam version content](#legacy-section-CCNA-version-6-200-125-exam)
     - [RIP](#dynamic-routing-rip)
+        - [RIPv1](#ripv1-configuration)
+        - [RIPv2](#ripv2-configuration)
     - [EIGRP](#dynamic-routing-eigrp)
         - [Configuration](#configuration)
         - [Verification](#verification)
