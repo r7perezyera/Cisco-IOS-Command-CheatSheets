@@ -327,7 +327,7 @@ You can find common AD values [here](#appendix-common-administrative-distance-ad
 
 Command|Description
 ---|---
-``R1(config-router)#default-information originate``|**if a [default static route](default-static-route) is configured on the router** propagate the default route to other routers receiving RIP updates
+``R1(config-router)#default-information originate``|**if a [default static route](#default-static-route) is configured on the router** propagate the default route to other routers receiving RIP updates
 
 
 ### RIPv2 configuration
