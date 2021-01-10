@@ -308,7 +308,7 @@ code|type|AD value
 There are five class groups in which IPv4 addresses are segmented: A, B, C, D, and E.  
 :bulb: Classes D and E are reserved groups.  
 - Class D addresses are **multicast groups**
-- Class E addresses are reserver for research purposes
+- Class E addresses are reserved for research purposes
 
 Class|Range (**first octet**)
 ---|---
