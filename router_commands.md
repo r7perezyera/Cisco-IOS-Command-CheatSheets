@@ -280,7 +280,7 @@ For Cisco routers, having instances of the 2 different HSRP versions running is 
 - v2 sends multicast HSRP traffic to ``224.0.0.102``, v1 multicasts to``224.0.0.2``
 - the **virtual MAC addresses are also different**
     - v1: ``0000.0C07.ACxx``
-    - v2: ``0000.0C9F.Fxxx``
+    - v2: ``0000.0C9F.Fxxx``
     - :bulb: the ``x`` characters at the end are replaced by the **group number** in HEX.
 
 
