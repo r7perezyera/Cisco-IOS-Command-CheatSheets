@@ -13,8 +13,11 @@
 - [Access Control Lists (ACL)](#no_pedestrians-access-control-lists-acl)
 - [DHCPv4](#DHCPv4)
 - [DHCPv6](#DHCPv6)
-- [NAT](#NAT)
-- [Common administrative distance values](#appendix-common-administrative-distance-ad-values)
+- [NAT](#NAT)  
+- Appendices:
+    - [Common administrative distance values](#appendix-common-administrative-distance-ad-values)
+    - [IPv4 address classes](#appendix-ipv4-address-classes)
+    - [Private IPv4 address ranges](#appendix-private-ipv4-address-ranges)
 - [Previous exam version content](#legacy-section-CCNA-version-6-200-125-exam)
     - [RIP](#dynamic-routing-rip)
         - [RIPv1](#ripv1-configuration)
@@ -270,7 +273,7 @@ code|type|AD value
 ``O``|OSPF|``110``
 ``R``|RIP|``120``
 
-[Back to the table of contents](#table-of-contents)  
+[Back to table of contents](#table-of-contents)  
 [Back to OSPF verification](#ospf-verification)  
 [Back to EIGRP verification](#eigrp-verification)
 [Back to RIP](#dynamic-routing-rip)
@@ -290,6 +293,8 @@ C|``192 - 223``
 D|``224 - 239``
 E|``240 - 255``
 
+[Back to table of contents](#table-of-contents)
+
 
 # Appendix: Private IPv4 address ranges
 
@@ -303,6 +308,9 @@ Class|Range (CIDR notation)|Range (start - end)
 A|``10.0.0.0/8``|``10.0.0.0 - 10.0.0.255``
 B|``172.16.0.0/12``|``172.16.0.0 - 172.31.255.255``
 C|``192.168.0.0/16``|``192.168.0.0 - 192.168.255.255``
+
+[Back to table of contents](#table-of-contents)
+
 
 ---
 # Legacy section (CCNA version 6, 200-125 exam)
