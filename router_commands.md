@@ -269,7 +269,7 @@ Command|Description
 ``R1(config-if)#standby [group] ip [virtual-ip]``|specify the router group and the virtual gateway's IP address
 ``R1(config-if)#standby [group] priority [0-255]``|(optional) specify each router a priority for **active router** election
 ``R1(config-if)#standby [group] preempt``|(optional) enables **preemption**, i.e., a router with higher priority will take the active role if current active router's priority is lower
-``R1(config-if)#standby [group] timers [hello-timer] [hold-timer]``|specify hello and hold (dead) timers. HSRP automatically ensures that the hold timer value is greater than the hello timer value to avoid incorrect operation.
+``R1(config-if)#standby [group] timers [hello-timer] [hold-timer]``|specify hello and hold (dead) timers. HSRP automatically ensures that the hold timer value is greater than the hello timer value to avoid incorrect behavior.
 
 :warning: **ALWAYS use the SAME HSRP version on your groups/topologies**  
 For Cisco routers, having instances of the 2 different HSRP versions running is like having two different HSRP groups. Hence, you will come across a duplicate address error (assuming you configured HSRPv1 and HSRPv2 using the same virtual router address).
