@@ -26,9 +26,11 @@
 - [VLAN management with VTP](#VLAN-trunking-protocol-VTP)
     - [VTP verification](#VTP-verification)
 - [STP](#Spanning-Tree-Protocol)
+- [EtherChannel](#etherchannel)
+
+
 
 ---
-
 ## Before we start: Configuration modes
 Three basic configuration modes we MUST be familiar with already (you will see them below, a lot).  
 
@@ -45,6 +47,7 @@ conf t, config term
 ```
 
 
+---
 ## Important ``show`` commands:
 Note that these commands are executed on privileged EXEC mode (``S1#`` prompt).  
 You can execute them from global configuration mode (``S1(config)#`` prompt) by adding the ``do`` keyword before the command.  
@@ -64,6 +67,9 @@ Command|Description
 ``S1#show interface vlan [id]``|
 ``S1#show interfaces trunk``|
 
+
+
+---
 ## Filtering information from ``show`` commands:
 Some commands, such as ``show running-config``, generate multiple lines of output.  
 
@@ -187,7 +193,9 @@ Command|Description
 ``S1(config-if)#mls qos trust cos``|set trusted state of an interface and indicate which packet fields are used to classify traffic
 ``S1(config-if)#switchport voice vlan [vlan-id]``|assign a voice VLAN to that port
 
----
+
+
+
 ---
 ## Configuring SSH
 Command|Description
@@ -211,6 +219,9 @@ Command|Description
 
 Verify your newly configured settings with ``S1#show ip ssh``
 
+
+
+---
 ## Port Security
 ### :closed_lock_with_key: Configuring Dynamic Port Security
 Command|Description
@@ -251,7 +262,7 @@ Command|Description
 
 
 
-
+---
 ## VLAN trunking protocol (VTP)
 Command|Description
 ---|---
@@ -275,6 +286,8 @@ Command|Description
 ``S1#show vlan brief``|this VLAN verification command might be useful as well when verifying VTP configuration
 
 
+
+---
 ## Spanning Tree Protocol
 
 ### Bridge ID configuration
@@ -334,3 +347,6 @@ Command|Description
 ``S1#show spanning-tree interface [int-id]``|STP information for the specified interface
 ``S1#show spanning-tree vlan [vlan-id]``|STP information for the specified VLAN
 ``S1#show spanning-tree summary``|summary of STP port states
+
+---
+## EtherChannel
