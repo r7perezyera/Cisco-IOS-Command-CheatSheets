@@ -354,7 +354,8 @@ Command|Description
 Command|Description
 ---|---
 ``S1(config)#interface range [start-int]-[end-int]``|start by selecting the range of interfaces to be bundled into a **single logical link**.
-``S1(config-if-range)#channel-group [number] mode [mode]``|descr
+``S1(config-if-range)#channel-group [number] mode [mode]``|specify the group ID and operation mode of the interface bundle
+:warning: The **EtherChannel negotiation protocols** you use for your interface bundles **MUST MATCH ON BOTH ENDS**, whether it is LACP, PAgP (Cisco Proprietary), or no protocol (``on``).
 
 #### Available EtherChannel modes
 EC mode|Description
