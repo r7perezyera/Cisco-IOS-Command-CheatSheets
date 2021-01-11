@@ -361,7 +361,7 @@ Command|Description
 #### Available EtherChannel modes
 EC mode|Description
 ---|---
-``active``|Enable LACP unconditionalyy
+``active``|Enable LACP unconditionally
 ``auto``|Enable PAgP only if another PAgP device is detected.
 ``desirable``|Enable PAgP unconditionally
 ``on``|Enable EtherChannel only
