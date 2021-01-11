@@ -350,3 +350,19 @@ Command|Description
 
 ---
 ## EtherChannel
+
+Command|Description
+---|---
+``S1(config)#interface range [start-int]-[end-int]``|start by selecting the range of interfaces to be bundled into a **single logical link**.
+``S1(config-if-range)#channel-group [number] mode [mode]``|descr
+
+#### Available EtherChannel modes
+EC mode|Description
+---|---
+``active``|Enable LACP unconditionalyy
+``auto``|Enable PAgP only if another PAgP device is detected.
+``desirable``|Enable PAgP unconditionally
+``on``|Enable EtherChannel only
+``passive``|Enable LACP only if another LACP device is detected
+
+
