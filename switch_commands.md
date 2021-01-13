@@ -354,7 +354,7 @@ Command|Description
 Command|Description
 ---|---
 ``S1(config)#interface range [start-int]-[end-int]``|start by selecting the interfaces to be bundled into a **single logical link**, i.e., the EtherChannel.
-``S1(config-if-range)#channel-group [number] mode [mode]``|specify the group ID and operation mode of the interface bundle
+``S1(config-if-range)#channel-group [number] mode [mode]``|specify the group ID and [operation mode](#available-etherchannel-modes) of the interface bundle
 ``S1(config)#interface port-channel [number]``|enter the **port channel interface configuration mode** to change settings
 
 ### PortChannel interface additional configuration
@@ -376,5 +376,7 @@ EC mode|Description
 ``desirable``|Enable PAgP unconditionally
 ``on``|Enable EtherChannel only
 ``passive``|Enable LACP only if another LACP device is detected
+
+[Back to beginning of section](#etherchannel)
 
 
