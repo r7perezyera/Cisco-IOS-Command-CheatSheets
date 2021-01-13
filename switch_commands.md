@@ -361,6 +361,7 @@ Command|Description
 Command|Description
 ---|---
 ``S1(config-if)#switchport mode trunk``|set the interface in trunking mode, so it can carry traffic of multiple VLANs
+``S1(config-if)#switchport trunk native vlan [native-vlan-id]``|specify the link's native VLAN
 ``S1(config-if)#switchport trunk allowed vlan [vlan-id-1 (,vlan-id-2,...)]``|specify allowed VLANs (VLAN IDs) on trunk link
 ``S1(config-if)#switchport trunk allowed vlan add [vlan-id-1 (,vlan-id-2,...)]``|**add** VLANs to the list of **already allowed** VLANs on the trunk link
 
