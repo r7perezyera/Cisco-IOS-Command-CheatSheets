@@ -353,8 +353,18 @@ Command|Description
 
 Command|Description
 ---|---
-``S1(config)#interface range [start-int]-[end-int]``|start by selecting the range of interfaces to be bundled into a **single logical link**.
+``S1(config)#interface range [start-int]-[end-int]``|start by selecting the interfaces to be bundled into a **single logical link**, i.e., the EtherChannel.
 ``S1(config-if-range)#channel-group [number] mode [mode]``|specify the group ID and operation mode of the interface bundle
+``S1(config)#interface port-channel [number]``|enter the **port channel interface configuration mode** to change settings
+
+### PortChannel interface additional configuration
+Command|Description
+---|---
+``S1(config-if)#switchport mode trunk``|set the interface in trunking mode, so it can carry traffic of multiple VLANs
+``S1(config-if)#switchport trunk allowed vlan [vlan-id-1 (,vlan-id-2,...)]``|specify allowed VLANs (VLAN IDs) on trunk link
+``S1(config-if)#switchport trunk allowed vlan add [vlan-id-1 (,vlan-id-2,...)]``|**add** VLANs to the list of **already allowed** VLANs on the trunk link
+
+
 
 :warning: The **EtherChannel negotiation protocols** you use for your interface bundles **MUST MATCH ON BOTH ENDS**, whether it is LACP, PAgP (Cisco Proprietary), or no protocol (``on`` mode).
 
