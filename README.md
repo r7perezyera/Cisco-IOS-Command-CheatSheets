@@ -43,8 +43,9 @@ Commands are organized by topic,
 ## Author
 __Roberto Téllez Perezyera__ - Computer science and software engineering student :school_satchel: | [Linkedin](https://www.linkedin.com/in/r7perezyera/)  
 - Computer  networking enthusiast  
-- :star2: Cisco Certified Network Associate Routing & Switching
-    - 200-125 (version 6) exam
+- :star2: Cisco Certified Network Associate
+    - 200-125 (version 6) exam, Jan 2020
+    - 200-301 (version 7) exam, Sep 2021
 
 ---
 ## Motivation
